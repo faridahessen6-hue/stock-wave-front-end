@@ -1,0 +1,132 @@
+:root {
+    --header-bg-light: #7e846b;
+    --header-bg-dark: #5a5f4d;
+    --header-text-light: #ffffff;
+    --header-text-dark: #e8e8e8;
+    --accent-color: #a8d5ba;
+    --hover-color: #c4e4d4;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    padding: 1rem 2rem;
+    background-color: var(--header-bg-light);
+    color: var(--header-text-light);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+header:first-child {
+    font-size: 1.5rem;
+    font-weight: bold;
+    min-width: 150px;
+}
+
+header[data-bs-theme="dark"] {
+    background-color: var(--header-bg-dark);
+    color: var(--header-text-dark);
+}
+
+.header-link-btn {
+    background: none;
+    border: none;
+    color: var(--header-text-light);
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    margin: 0 0.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 4px;
+    position: relative;
+}
+
+.header-link-btn:hover {
+    background-color: var(--hover-color);
+    color: #1a1a1a;
+    transform: translateY(-2px);
+}
+
+.header-link-btn::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--accent-color);
+    transition: width 0.3s ease;
+}
+
+.header-link-btn:hover::after {
+    width: 100%;
+}
+
+button[class*="sign"] {
+    background-color: var(--accent-color);
+    color: #1a1a1a;
+    border: none;
+    padding: 0.6rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-left: auto;
+}
+
+button[class*="sign"]:hover {
+    background-color: var(--hover-color);
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(168, 213, 186, 0.4);
+}
+
+button[class*="sign"]:active {
+    transform: scale(0.98);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    header {
+        flex-wrap: wrap;
+        padding: 1rem;
+        height: auto;
+    }
+
+    .header-link-btn {
+        font-size: 0.9rem;
+        padding: 0.4rem 0.8rem;
+        margin: 0.25rem;
+    }
+
+    button[class*="sign"] {
+        margin-left: 0.1rem;
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .header-link-btn {
+        font-size: 0.85rem;
+        padding: 0.3rem 0.6rem;
+    }
+
+    button[class*="sign"] {
+        margin-left: 0;
+        width: 100%;
+    }
+}
