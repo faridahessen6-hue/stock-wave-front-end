@@ -13,20 +13,31 @@ export default function loadHeader() {
     if (!document.querySelector('link[href*="header"]')) {
         const link = document.createElement('link');
         link.rel = 'stylesheet';
-        link.href = '/components/header.css';
+        link.href = '/components/header/header.css';
         document.head.appendChild(link);
     }
 
     // Create header element
     const header = document.createElement("header");
 
-    header.innerText = 'stockWaves';
     header.classList.add('header');
 
+    const logo = document.createElement('p');
+    logo.innerText = 'Stock Waves';
+    // logo.classList.add('header-link-btn');
+
+    logo.addEventListener('click', () => {
+        window.location.href = '/pages/home.html';
+      
+    });
+    
     const companies_Btn = document.createElement('button');
     companies_Btn.innerText = 'Companies';
     companies_Btn.classList.add('header-link-btn');
 
+    companies_Btn.addEventListener('click', () => {
+        window.location.href = '/pages/companies.html';
+    });
     const sector_Btn = document.createElement('button');
     sector_Btn.innerText = 'Sector';
     sector_Btn.classList.add('header-link-btn');
@@ -75,7 +86,7 @@ export default function loadHeader() {
 
 
 
-
+    header.appendChild(logo);
     header.appendChild(companies_Btn);
     header.appendChild(sector_Btn);
     header.appendChild(orders_Btn);

@@ -11,7 +11,7 @@ header {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
+    width: 97%;
     height: auto;
     padding: 1rem 2rem;
     background-color: var(--header-bg-light);
@@ -128,5 +128,7 @@ button[class*="sign"]:active {
     button[class*="sign"] {
         margin-left: 0;
         width: 100%;
+        margin: 20px;
+        
     }
 }

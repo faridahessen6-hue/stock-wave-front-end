@@ -1,3 +1,3 @@
-import loadHeader from '../components/header.js';
+import loadHeader from '../components/header/header.js';
 
 loadHeader();
