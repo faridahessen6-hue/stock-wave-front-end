@@ -1,0 +1,113 @@
+/* Login Container */
+.login-container {
+    width: 100%;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #2F2504 0%, #594E35 50%, #A5AE9E 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Login Form */
+.login-form {
+    width: 400px;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Headers */
+.login-header {
+    text-align: center;
+    color: #2F2504;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    margin-top: 0;
+}
+
+.login-subheader {
+    text-align: center;
+    color: #594E36;
+    font-size: 0.9rem;
+    font-weight: 400;
+    margin-bottom: 30px;
+    margin-top: 0;
+}
+
+/* Labels */
+.email-label,
+.password-label {
+    display: block;
+    margin-bottom: 8px;
+    color: #2F2504;
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+/* Inputs */
+.email-input,
+.password-input {
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px solid #e1e5e9;
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.8);
+    box-sizing: border-box;
+    margin-bottom: 20px;
+}
+
+.email-input:focus,
+.password-input:focus {
+    outline: none;
+    border-color: #594E36;
+    background: white;
+    box-shadow: 0 0 0 3px rgba(89, 78, 54, 0.1);
+}
+
+.email-input::placeholder,
+.password-input::placeholder {
+    color: #a0a0a0;
+}
+
+/* Login Button */
+.login-button {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(135deg, #594E36, #2F2504);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+}
+
+.login-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(89, 78, 54, 0.3);
+}
+
+.login-button:active {
+    transform: translateY(0);
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+    .login-form {
+        width: 90%;
+        padding: 30px 20px;
+    }
+    
+    .login-header {
+        font-size: 1.5rem;
+    }
+}

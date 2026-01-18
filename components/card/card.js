@@ -6,50 +6,69 @@ function createElement(tag, className = '', textContent = '') {
     return element;
 }
 
-export default function createAnimatedCard(titleText = "Card", subtitleText = "text", yearText = "2025", uiverseLabel = "UIverse", cardLabel = "card") {
+export default function createCard(titleText = "Card", subtitleText = "text", yearText = "2025", uiverseLabel = "UIverse", cardLabel = "card") {
     // Ensure CSS is loaded
-    if (!document.querySelector('link[href*="card-animated"]')) {
+    if (!document.querySelector('link[href*="card"]')) {
         const link = document.createElement('link');
         link.rel = 'stylesheet';
-        link.href = '/components/card/card-animated.css';
+        link.href = '/components/card/card.css';
         document.head.appendChild(link);
     }
 
     // Create the main container
-    const container = createElement('div', 'animated-card-container');
+    const container = document.createElement('div');
+    container.className = 'animated-card-container';
 
     // Create background overlay with gradient
-    const bgOverlay = createElement('div', 'bg-overlay');
-    const cardBackground = createElement('div', 'card-background');
+    const bgOverlay = document.createElement('div');
+    bgOverlay.className = 'bg-overlay';
+    const cardBackground = document.createElement('div');
+    cardBackground.className = 'card-background';
     bgOverlay.appendChild(cardBackground);
     container.appendChild(bgOverlay);
 
     // Create the card content with spinning element
-    const cardContent = createElement('div', 'card-content');
-    const spinningElement = createElement('div', 'spinning-element');
+    const cardContent = document.createElement('div');
+    cardContent.className = 'card-content';
+    const spinningElement = document.createElement('div');
+    spinningElement.className = 'spinning-element';
     cardContent.appendChild(spinningElement);
     container.appendChild(cardContent);
 
     // Create the info section
-    const infoSection = createElement('div', 'info-section');
+    const infoSection = document.createElement('div');
+    infoSection.className = 'info-section';
 
     // Left panel
-    const leftPanel = createElement('div', 'left-panel');
-    const title = createElement('span', 'title', titleText);
-    const subtitle = createElement('span', 'subtitle', subtitleText);
-    const year = createElement('div', 'year', yearText);
+    const leftPanel = document.createElement('div');
+    leftPanel.className = 'left-panel';
+    const title = document.createElement('span');
+    title.className = 'title';
+    title.textContent = titleText;
+    const subtitle = document.createElement('span');
+    subtitle.className = 'subtitle';
+    subtitle.textContent = subtitleText;
+    const year = document.createElement('div');
+    year.className = 'year';
+    year.textContent = yearText;
     
     leftPanel.appendChild(title);
     leftPanel.appendChild(subtitle);
     leftPanel.appendChild(year);
 
     // Right panel
-    const rightPanel = createElement('div', 'right-panel');
-    const uiLabel = createElement('span', 'ui-label', uiverseLabel);
-    const cardLabelElement = createElement('span', 'label', cardLabel);
+    const rightPanel = document.createElement('div');
+    rightPanel.className = 'right-panel';
+    const uiLabel = document.createElement('span');
+    uiLabel.className = 'ui-label';
+    uiLabel.textContent = uiverseLabel;
+    const cardLabelElement = document.createElement('span');
+    cardLabelElement.className = 'label';
+    cardLabelElement.textContent = cardLabel;
 
     // Icon container
-    const iconContainer = createElement('div', 'icon-container');
+    const iconContainer = document.createElement('div');
+    iconContainer.className = 'icon-container';
     
     // Create SVG for arrow icon
     const svgNS = "http://www.w3.org/2000/svg";
@@ -69,7 +88,8 @@ export default function createAnimatedCard(titleText = "Card", subtitleText = "t
     g.appendChild(path);
     svg.appendChild(g);
     
-    const arrowIcon = createElement('span', 'arrow-icon');
+    const arrowIcon = document.createElement('span');
+    arrowIcon.className = 'arrow-icon';
     arrowIcon.appendChild(svg);
     iconContainer.appendChild(arrowIcon);
 
@@ -80,15 +100,6 @@ export default function createAnimatedCard(titleText = "Card", subtitleText = "t
     infoSection.appendChild(leftPanel);
     infoSection.appendChild(rightPanel);
     container.appendChild(infoSection);
-
-    // Add hover effect to icon
-    iconContainer.addEventListener('mouseenter', function() {
-        this.style.transform = 'scale(1.1)';
-    });
-
-    iconContainer.addEventListener('mouseleave', function() {
-        this.style.transform = 'scale(1)';
-    });
 
     return container;
 }

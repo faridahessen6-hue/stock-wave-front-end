@@ -22,9 +22,15 @@ export default function loadHeader() {
 
     header.classList.add('header');
 
-    const logo = document.createElement('p');
-    logo.innerText = 'Stock Waves';
-    // logo.classList.add('header-link-btn');
+    const logo = document.createElement('img');
+    logo.src = '/components/header/logo.png';
+    logo.alt = 'Stock Waves Logo';
+    logo.style.cursor = 'pointer';
+    logo.style.width = '100px';
+    logo.style.height = '100px';
+    logo.style.marginRight = '20px';
+
+
 
     logo.addEventListener('click', () => {
         window.location.href = '/pages/home.html';
