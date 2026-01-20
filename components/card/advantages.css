@@ -1,5 +1,4 @@
-.advantages-container {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(240, 240, 240, 0.95) 100%);
+/* .advantages-container {
     border-radius: 20px;
     padding: 40px;
     margin: 40px 20px;
@@ -11,19 +10,19 @@
     margin-right: auto;
     position: relative;
     overflow: hidden;
+    width: 100px;
     transition: all 0.3s ease;
-}
-
-.advantages-container::before {
+} */
+ 
+/* .advantages-container::before {
     content: '';
     position: absolute;
     top: 0;
     left: -100%;
     width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    height: 200%;
     transition: left 0.5s ease;
-}
+} */
 
 .advantages-container:hover::before {
     left: 100%;
@@ -31,17 +30,17 @@
 
 .advantages-container:hover {
     transform: translateY(-5px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    
 }
 
 .advantages-img {
-    width: 100%;
-    height: 200px;
+    width: 50%;
+    height: 900px;
     object-fit: cover;
     border-radius: 15px;
     margin-bottom: 30px;
     transition: all 0.3s ease;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    margin-left: 800px;
 }
 
 .advantages-img:hover {
@@ -50,16 +49,15 @@
 }
 
 .advantages-sub-header {
-    font-size: 2.5rem;
-    font-weight: 700;
+    font-size: 2.5rem;  
     color: #2F2504;
-    margin-bottom: 25px;
+    margin-top: -810px;
     text-align: center;
-    background: linear-gradient(135deg, #2F2504 0%, #594E35 50%, #A5AE9E 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    background: linear-gradient(135deg, #2F2504 0%, #594E35 50%, #A5AE9E 100%); 
     background-clip: text;
-    position: relative;
+    margin-bottom: 70px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    letter-spacing: 1px;
 }
 
 .advantages-sub-header::after {
@@ -69,46 +67,42 @@
     left: 50%;
     transform: translateX(-50%);
     width: 80px;
-    height: 3px;
-    background: linear-gradient(90deg, #2F2504, #A5AE9E);
+    height: 3px;    
     border-radius: 2px;
 }
 
 .advantages-description {
-    font-size: 1.1rem;
-    line-height: 1.6;
-    color: #333;
-    margin-bottom: 15px;
-    padding: 12px 20px;
-    background: rgba(165, 174, 158, 0.1);
-    border-radius: 10px;
-    border-left: 4px solid #594E35;
+    font-size: 20px;
+    color: #7E846B;
+    margin-bottom: 10px;        
     transition: all 0.3s ease;
     position: relative;
-    overflow: hidden;
+    font-weight: 500;
+    margin-left: 70px;
+    
+    
 }
 
 .advantages-description::before {
-    content: '✓';
+    content: '.';
     position: absolute;
     left: -20px;
     top: 50%;
     transform: translateY(-50%);
     width: 30px;
     height: 30px;
-    background: linear-gradient(135deg, #594E35, #A5AE9E);
-    color: white;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     font-weight: bold;
     transition: all 0.3s ease;
+    font-size: 14px;
+
 }
 
 .advantages-description:hover {
-    background: rgba(165, 174, 158, 0.2);
-    transform: translateX(10px);
+    
     padding-left: 30px;
 }
 
@@ -142,9 +136,6 @@
     position: absolute;
     top: 0;
     left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
     transition: left 0.5s ease;
 }
 

@@ -43,7 +43,7 @@ const imgContainer = document.createElement("div");
 imgContainer.classList.add('img-container');
 
 const bgImage = document.createElement('img');
-bgImage.src = 'https://picsum.photos/seed/stockwaves/1920/1080.jpg';
+bgImage.src = 'bgimage.png';
 bgImage.style.cursor = 'pointer';
 bgImage.style.width = '100%';
 bgImage.style.height = '100vh';

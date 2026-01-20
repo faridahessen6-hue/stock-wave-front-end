@@ -3,7 +3,8 @@ advantagesContainer.className = "advantages-container";
 
 const advantagesImg = document.createElement("img");
 advantagesImg.className = "advantages-img";
-advantagesImg.src = "img/image.png";
+advantagesImg.src = "../components/card/image.png";
+advantagesImg.alt = "Stock Market Advantages";
 
 const advantagesSubHeader = document.createElement("h2");
 advantagesSubHeader.className = "advantages-sub-header";
@@ -46,9 +47,7 @@ const advantagesDescription9 = document.createElement("p");
 advantagesDescription9.className = "advantages-description";
 advantagesDescription9.textContent = "Notifications and alerts for price changes"
 
-const advantagesButton = document.createElement("button");
-advantagesButton.className = "advantages-button";
-advantagesButton.textContent = "Advantages";
+
 
 advantagesContainer.appendChild(advantagesImg);
 advantagesContainer.appendChild(advantagesSubHeader);
@@ -61,6 +60,6 @@ advantagesContainer.appendChild(advantagesDescription6);
 advantagesContainer.appendChild(advantagesDescription7);
 advantagesContainer.appendChild(advantagesDescription8);
 advantagesContainer.appendChild(advantagesDescription9);
-advantagesContainer.appendChild(advantagesButton);
+
 
 export default advantagesContainer;
