@@ -1,6 +1,6 @@
-import loadHeader from '../components/header/header.js';
-import { createAllSections } from '../components/card/div.js';
-import advantagesContainer from '../components/card/advantages.js';
+import loadHeader from '../../components/header/header.js';
+import { createAllSections } from '../../components/card/div.js';
+import advantagesContainer from '../../components/card/advantages.js';
 
 loadHeader();
 
