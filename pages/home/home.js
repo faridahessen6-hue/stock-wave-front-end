@@ -43,7 +43,7 @@ const imgContainer = document.createElement("div");
 imgContainer.classList.add('img-container');
 
 const bgImage = document.createElement('img');
-bgImage.src = 'bgimage.png';
+bgImage.src = 'home-bg.png';
 bgImage.style.cursor = 'pointer';
 bgImage.style.width = '100%';
 bgImage.style.height = '100vh';
