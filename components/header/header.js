@@ -44,9 +44,14 @@ export default function loadHeader() {
     companies_Btn.addEventListener('click', () => {
         window.location.href = '/pages/companies.html';
     });
+
+
     const sector_Btn = document.createElement('button');
     sector_Btn.innerText = 'Sector';
     sector_Btn.classList.add('header-link-btn');
+    sector_Btn.addEventListener('click', () => {
+        window.location.href = '/pages/sector.html';
+    });
 
     const orders_Btn = document.createElement('button');
     orders_Btn.innerText = 'Orders';
