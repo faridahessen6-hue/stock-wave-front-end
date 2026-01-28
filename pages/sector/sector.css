@@ -20,9 +20,7 @@ body {
 
 /* Page Header */
 .page-header {
-    text-align: center;
-    margin-bottom: 50px;
-    color: white;
+    margin: 20px 40px 50px;
     animation: slideDown 0.6s ease-out;
 }
 
@@ -30,18 +28,12 @@ body {
     font-size: 3rem;
     font-weight: 700;
     margin-bottom: 15px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-    background: linear-gradient(135deg, #ffffff, #A5AE9E);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
 }
 
 .page-subtitle {
     font-size: 1.2rem;
-    color: rgba(255, 255, 255, 0.9);
     font-weight: 400;
-    margin-top: 70px;
+    margin: 0;
 }
 
 /* Card Container Styling */

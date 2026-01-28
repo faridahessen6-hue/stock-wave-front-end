@@ -14,10 +14,7 @@
     animation: fadeInUp 0.6s ease-out;
 }
 
-.homediv:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-}
+/* Removed hover effect - not necessary */
 
 .homediv::before {
     content: '';
@@ -110,10 +107,7 @@
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
-.section-image:hover {
-    transform: scale(1.05);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-}
+/* Removed image hover effect */
 
 /* Container for all sections */
 .sections-container {
@@ -151,18 +145,7 @@
     border-left: 4px solid #A5AE9E;
 }
 
-/* Hover effects for different sections */
-.homediv:nth-child(1):hover {
-    border-left-color: #594E36;
-}
-
-.homediv:nth-child(2):hover {
-    border-left-color: #A5AE9E;
-}
-
-.homediv:nth-child(3):hover {
-    border-left-color: #2F2504;
-}
+/* Removed section-specific hover effects */
 
 /* Animations */
 @keyframes fadeInUp {

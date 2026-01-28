@@ -1,12 +1,20 @@
 export default function loadHeader() {
-
-
     // Ensure Bootstrap Icons are loaded
     if (!document.querySelector('link[href*="bootstrap-icons"]')) {
         const link = document.createElement('link');
         link.rel = 'stylesheet';
         link.href = 'https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css';
+        link.crossOrigin = 'anonymous';
+        link.referrerPolicy = 'no-referrer';
         document.head.appendChild(link);
+    }
+
+    // Ensure global CSS is loaded
+    if (!document.querySelector('link[href*="global.css"]')) {
+        const globalLink = document.createElement('link');
+        globalLink.rel = 'stylesheet';
+        globalLink.href = '/assets/css/global.css';
+        document.head.appendChild(globalLink);
     }
 
     // Ensure css are loaded
@@ -17,92 +25,68 @@ export default function loadHeader() {
         document.head.appendChild(link);
     }
 
-    // Create header element
-    const header = document.createElement("header");
+    const header = document.createElement('header');
 
-    header.classList.add('header');
+    // Logo
+    const logoContainer = document.createElement('div');
+    logoContainer.className = 'logo-container';
 
     const logo = document.createElement('img');
-    logo.src = '/components/header/logo.png';
+    logo.src = '/assets/images/logo.png';
     logo.alt = 'Stock Waves Logo';
     logo.style.cursor = 'pointer';
-    logo.style.width = '100px';
-    logo.style.height = '100px';
+    logo.style.width = '60px'; // Reduced size to match footer
+    logo.style.height = '60px';
     logo.style.marginRight = '20px';
 
+    logo.onclick = function () {
+        window.location.href = '/pages/home/home.html';
+    };
 
+    logoContainer.appendChild(logo);
 
-    logo.addEventListener('click', () => {
-        window.location.href = '/pages/home.html';
-      
-    });
-    
-    const companies_Btn = document.createElement('button');
-    companies_Btn.innerText = 'Companies';
-    companies_Btn.classList.add('header-link-btn');
+    // Navigation
+    const nav = document.createElement('nav');
 
-    companies_Btn.addEventListener('click', () => {
-        window.location.href = '/pages/companies.html';
-    });
+    // Home Link
+    const homeBtn = document.createElement('button');
+    homeBtn.className = 'header-link-btn';
+    homeBtn.textContent = 'Home';
+    homeBtn.onclick = function () {
+        window.location.href = '/pages/home/home.html';
+    };
 
+    // Companies Link
+    const companiesBtn = document.createElement('button');
+    companiesBtn.className = 'header-link-btn';
+    companiesBtn.textContent = 'Companies';
+    companiesBtn.onclick = function () {
+        window.location.href = '/pages/companies/companies.html';
+    };
 
-    const sector_Btn = document.createElement('button');
-    sector_Btn.innerText = 'Sector';
-    sector_Btn.classList.add('header-link-btn');
-    sector_Btn.addEventListener('click', () => {
-        window.location.href = '/pages/sector.html';
-    });
+    // Sectors Link
+    const sectorBtn = document.createElement('button');
+    sectorBtn.className = 'header-link-btn';
+    sectorBtn.textContent = 'Sectors';
+    sectorBtn.onclick = function () {
+        window.location.href = '/pages/sector/sector.html';
+    };
 
-    const orders_Btn = document.createElement('button');
-    orders_Btn.innerText = 'Orders';
-    orders_Btn.classList.add('header-link-btn');
+    // Sign Up Button
+    const signBtn = document.createElement('button');
+    signBtn.className = 'sign-btn';
+    signBtn.textContent = 'Sign Up';
+    signBtn.onclick = function () {
+        window.location.href = '/pages/register/register.html';
+    };
 
-    const help_btn = document.createElement('button');
-    help_btn.innerText = 'help';
-    help_btn.classList.add('header-link-btn');
+    nav.appendChild(homeBtn);
+    nav.appendChild(companiesBtn);
+    nav.appendChild(sectorBtn);
 
+    header.appendChild(logoContainer);
+    header.appendChild(nav);
+    header.appendChild(signBtn);
 
-    const sign_Btn = document.createElement('button');
-    sign_Btn.innerText = 'Sign Up';
-    sign_Btn.classList.add('sign_up_Btn');
-
-
-
-
-
-
-
-    // Get current theme from localStorage
-    const currentTheme = localStorage.getItem('theme') || 'light';
-    document.documentElement.setAttribute('data-bs-theme', currentTheme);
-
-
-    // Dark mode toggle functionality
-    const darkModeToggle = header.querySelector('#darkModeToggle');
-    if (darkModeToggle) {
-        darkModeToggle.addEventListener('change', (e) => {
-            const newTheme = e.target.checked ? 'dark' : 'light';
-            document.documentElement.setAttribute('data-bs-theme', newTheme);
-            localStorage.setItem('theme', newTheme);
-
-            // Update navbar style based on theme
-            header.style.backgroundColor = newTheme === 'dark' ? '#5a5f4d' : '#7e846b';
-
-            // Update dark mode icon
-            const icon = darkModeToggle.nextElementSibling.querySelector('i');
-            icon.className = `bi ${newTheme === 'dark' ? 'bi-moon-stars' : 'bi-sun'} me-1`;
-            darkModeToggle.nextElementSibling.lastChild.textContent = newTheme === 'dark' ? 'Dark' : 'Light';
-        });
-    }
-
-
-
-    header.appendChild(logo);
-    header.appendChild(companies_Btn);
-    header.appendChild(sector_Btn);
-    header.appendChild(orders_Btn);
-    header.appendChild(help_btn);
-    header.appendChild(sign_Btn);
-
-    document.body.appendChild(header);
-};
+    document.body.prepend(header);
+}

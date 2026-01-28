@@ -6,14 +6,14 @@ const loginContainer = document.createElement("div");
 loginContainer.className = "login-container";
 
 const loginForm = document.createElement("form");
-loginForm.className = "login-form";
+loginForm.className = "login-form glass-panel";
 
 const loginHeader = document.createElement("h1");
-loginHeader.className = "login-header";
+loginHeader.className = "login-header gradient-header";
 loginHeader.textContent = "Login";
 
 const loginSubHeader = document.createElement("h2");
-loginSubHeader.className = "login-subheader";
+loginSubHeader.className = "login-subheader contrast-text";
 loginSubHeader.textContent = "welcome back! please enter your details";
 
 
@@ -45,6 +45,14 @@ loginButton.type = "submit";
 loginButton.textContent = "Login";
 
 
+const redirecToRegisterButton = document.createElement("button");
+redirecToRegisterButton.textContent = "Do Not Have An Account?! Register";
+redirecToRegisterButton.className = "secondary-button";
+redirecToRegisterButton.type = "button";
+redirecToRegisterButton.onclick = function () {
+    window.location.href = "/pages/register/register.html";
+};
+
 
 loginContainer.appendChild(loginForm);
 loginForm.appendChild(loginHeader);
@@ -54,4 +62,5 @@ loginForm.appendChild(emailInput);
 loginForm.appendChild(passwordLabel);
 loginForm.appendChild(passwordInput);
 loginForm.appendChild(loginButton);
+loginForm.appendChild(redirecToRegisterButton)
 document.body.appendChild(loginContainer);

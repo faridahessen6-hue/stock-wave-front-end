@@ -2,16 +2,10 @@
 body {
     margin: 0;
     padding: 0;
-    background: 
-        linear-gradient(135deg, rgba(47, 37, 4, 0.8) 0%, rgba(89, 78, 54, 0.8) 50%, rgba(165, 174, 158, 0.8) 100%),
-        url('https://picsum.photos/seed/stockwaves/1920/1080.jpg');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
     min-height: 100vh;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     overflow-x: hidden;
+    background-color: #f4f4f4; 
 }
 
 /* Home Container */
@@ -25,60 +19,44 @@ body {
     padding: 20px;
 }
 
-/* Enhanced Image Container */
+/* Image Container (Background) */
 .img-container {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100vh;
-    z-index: 1;
+    z-index: -1; 
     overflow: hidden;
 }
 
-.img-container img {
+.bg-image {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    opacity: 0.4;
+    opacity: 0.7;
     transition: all 0.5s ease;
-    filter: blur(1px);
+    cursor: pointer;
 }
 
-.img-container img:hover {
+.img-container:hover .bg-image {
     opacity: 0.6;
     filter: blur(0px);
     transform: scale(1.02);
 }
 
-/* Background overlay for better text readability */
-.home-container::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(47, 37, 4, 0.3);
-    z-index: 2;
-    pointer-events: none;
-}
 
 /* Home Form */
 .home-form {
-    background: rgba(255, 255, 255, 0.95);
-    padding: 60px 50px;
-    border-radius: 25px;
-    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
-    backdrop-filter: blur(15px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 1200px;
     width: 90%;
-    text-align: center;
+    margin: 100px auto 40px;
     animation: fadeInUp 0.8s ease-out;
     position: relative;
-    overflow: hidden;
-    margin-top: 180px;
+    z-index: 1;
 }
 
 .home-form::before {
@@ -97,13 +75,7 @@ body {
 .home-header {
     font-size: 3.5rem;
     font-weight: 800;
-    color: #2F2504;
     margin-bottom: 20px;
-    background: linear-gradient(135deg, #2F2504, #594E36);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    text-shadow: none;
     position: relative;
     z-index: 1;
 }
@@ -111,9 +83,7 @@ body {
 .home-sub-header {
     font-size: 1.8rem;
     font-weight: 600;
-    color: #594E36;
     margin-bottom: 30px;
-    opacity: 0.9;
     position: relative;
     z-index: 1;
 }
@@ -122,10 +92,8 @@ body {
 .home-description {
     font-size: 1.1rem;
     line-height: 1.6;
-    color: #4a4a4a;
     margin-bottom: 20px;
     text-align: left;
-    opacity: 0.8;
     position: relative;
     z-index: 1;
     transition: all 0.3s ease;
@@ -192,42 +160,17 @@ body {
 
 .our-companies-button {
     background: transparent;
-    color: #594E36;
-    border: 2px solid #594E36;
+    color: #ffffff;
+    border: 2px solid #ffffff;
 }
 
 .our-companies-button:hover {
-    background: #594E36;
-    color: white;
+    background: #ffffff;
+    color: #2F2504;
     transform: translateY(-3px);
-    box-shadow: 0 10px 25px rgba(89, 78, 54, 0.3);
+    box-shadow: 0 10px 25px rgba(255, 255, 255, 0.2);
 }
 
-/* Image Container */
-.img-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    z-index: 1;
-    overflow: hidden;
-}
-
-.img-container img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0.3;
-    transition: all 0.5s ease;
-    filter: blur(2px);
-}
-
-.img-container img:hover {
-    opacity: 0.5;
-    filter: blur(0px);
-    transform: scale(1.05);
-}
 
 /* Button Container */
 .button-container {

@@ -11,14 +11,9 @@
 
 /* register Form */
 .register-form {
-    width: 400px;
-    background: rgba(255, 255, 255, 0.95);
+    width: 900px;
     padding: 40px;
-    margin: 150px;
-    border-radius: 20px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    margin: 150px auto;
 }
 
 /* Headers */
@@ -44,9 +39,10 @@
 .label {
     display: block;
     margin-bottom: 8px;
-    color: #2F2504;
+    color: var(--text-white);
     font-weight: 500;
     font-size: 0.9rem;
+    text-shadow: var(--text-shadow-sm);
 }
 
 /* Inputs */
@@ -85,17 +81,13 @@
     font-size: 1rem;
     font-weight: 600;
     cursor: pointer;
-    transition: all 0.3s ease;
     margin-top: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 .register-button:hover {
     transform: translateY(-2px);
-    box-shadow: 0 10px 20px rgba(89, 78, 54, 0.3);
-}
-
-.register-button:active {
-    transform: translateY(0);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
 }
 
 /* Responsive Design */

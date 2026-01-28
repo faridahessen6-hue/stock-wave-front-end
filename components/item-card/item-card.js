@@ -1,17 +1,11 @@
-// Helper function to create elements
-function createElement(tag, className = '', textContent = '') {
-    const element = document.createElement(tag);
-    if (className) element.className = className;
-    if (textContent) element.textContent = textContent;
-    return element;
-}
+
 
 export default function createCard(titleText = "Card", subtitleText = "text", yearText = "2025", uiverseLabel = "UIverse", cardLabel = "card") {
     // Ensure CSS is loaded
-    if (!document.querySelector('link[href*="card"]')) {
+    if (!document.querySelector('link[href*="item-card"]')) {
         const link = document.createElement('link');
         link.rel = 'stylesheet';
-        link.href = '/components/card/card.css';
+        link.href = '/components/item-card/item-card.css';
         document.head.appendChild(link);
     }
 
@@ -51,7 +45,7 @@ export default function createCard(titleText = "Card", subtitleText = "text", ye
     const year = document.createElement('div');
     year.className = 'year';
     year.textContent = yearText;
-    
+
     leftPanel.appendChild(title);
     leftPanel.appendChild(subtitle);
     leftPanel.appendChild(year);
@@ -69,7 +63,7 @@ export default function createCard(titleText = "Card", subtitleText = "text", ye
     // Icon container
     const iconContainer = document.createElement('div');
     iconContainer.className = 'icon-container';
-    
+
     // Create SVG for arrow icon
     const svgNS = "http://www.w3.org/2000/svg";
     const svg = document.createElementNS(svgNS, "svg");
@@ -87,7 +81,7 @@ export default function createCard(titleText = "Card", subtitleText = "text", ye
 
     g.appendChild(path);
     svg.appendChild(g);
-    
+
     const arrowIcon = document.createElement('span');
     arrowIcon.className = 'arrow-icon';
     arrowIcon.appendChild(svg);
