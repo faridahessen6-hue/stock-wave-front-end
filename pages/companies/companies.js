@@ -5,7 +5,6 @@ import loadFooter from "/components/footer/footer.js";
 
 loadHeader();
 
-
 const pageHeader = document.createElement('div');
 pageHeader.className = 'page-header glass-panel';
 
@@ -29,6 +28,10 @@ function loadCompanies() {
 
     companies.forEach(company => {
         const card = createCard(company.name, company.sector, "2024", "NASDAQ", company.symbol);
+        card.addEventListener('click', () => {
+            sessionStorage.setItem('selectedCompanySymbol', company.symbol);
+            window.location.href = '/pages/companies_details/companiesdetails.html';
+        });
         cardsContainer.appendChild(card);
     });
 }

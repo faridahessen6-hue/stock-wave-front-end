@@ -15,3 +15,8 @@ export function getCompanies() {
         { name: 'Meta', sector: 'Social Media', symbol: 'META' }
     ];
 }
+
+export function getCompanyDetailsBySymbol(symbol) {
+    const companies = getCompanies();
+    return companies.find(c => c.symbol === symbol) || null;
+}
