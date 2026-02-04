@@ -40,7 +40,7 @@ export default function loadHeader() {
     logo.style.marginRight = '20px';
 
     logo.onclick = function () {
-        window.location.href = '/pages/home/home.html';
+        window.location.href = '/pages/Ask/ask.html';
     };
 
     logoContainer.appendChild(logo);
@@ -48,12 +48,12 @@ export default function loadHeader() {
     // Navigation
     const nav = document.createElement('nav');
 
-    // Home Link
-    const homeBtn = document.createElement('button');
-    homeBtn.className = 'header-link-btn';
-    homeBtn.textContent = 'Home';
-    homeBtn.onclick = function () {
-        window.location.href = '/pages/home/home.html';
+    // ask Link
+    const askBtn = document.createElement('button');
+    askBtn.className = 'header-link-btn';
+    askBtn.textContent = 'ask';
+    askBtn.onclick = function () {
+        window.location.href = '/pages/ask/ask.html';
     };
 
     // Companies Link
@@ -80,7 +80,7 @@ export default function loadHeader() {
         window.location.href = '/pages/register/register.html';
     };
 
-    nav.appendChild(homeBtn);
+    nav.appendChild(askBtn);
     nav.appendChild(companiesBtn);
     nav.appendChild(sectorBtn);
 

@@ -130,6 +130,7 @@ body {
 .financial-highlights,
 .key-statistics {
     animation: fadeInUp 0.8s ease-out backwards;
+    
 }
 
 .company-description {
