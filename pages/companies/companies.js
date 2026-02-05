@@ -22,18 +22,22 @@ pageHeader.appendChild(pageSubtitle);
 const cardsContainer = document.createElement('div');
 cardsContainer.className = 'companies-container';
 
-// Load companies from API
-function loadCompanies() {
-    const companies = getCompanies();
-
-    companies.forEach(company => {
-        const card = createCard(company.name, company.sector, "2024", "NASDAQ", company.symbol);
-        card.addEventListener('click', () => {
-            sessionStorage.setItem('selectedCompanySymbol', company.symbol);
-            window.location.href = '/pages/companies_details/companiesdetails.html';
-        });
-        cardsContainer.appendChild(card);
-    });
+async function loadCompanies() {
+    try {
+        const companies = await getCompanies();
+        if (Array.isArray(companies)) {
+            companies.forEach(company => {
+                const card = createCard(company.name, company.sector || company.ticker, "2024", "NASDAQ", company.symbol || company.ticker);
+                card.addEventListener('click', () => {
+                    sessionStorage.setItem('selectedCompanyid', company.id || company.ticker);
+                    window.location.href = '/pages/companies_details/companiesdetails.html?id=' + (company.id || company.ticker);
+                });
+                cardsContainer.appendChild(card);
+            });
+        }
+    } catch (error) {
+        console.error("Error loading companies:", error);
+    }
 }
 
 document.body.appendChild(pageHeader);

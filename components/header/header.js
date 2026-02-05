@@ -1,5 +1,4 @@
 export default function loadHeader() {
-    // Ensure Bootstrap Icons are loaded
     if (!document.querySelector('link[href*="bootstrap-icons"]')) {
         const link = document.createElement('link');
         link.rel = 'stylesheet';
@@ -9,7 +8,6 @@ export default function loadHeader() {
         document.head.appendChild(link);
     }
 
-    // Ensure global CSS is loaded
     if (!document.querySelector('link[href*="global.css"]')) {
         const globalLink = document.createElement('link');
         globalLink.rel = 'stylesheet';
@@ -17,7 +15,6 @@ export default function loadHeader() {
         document.head.appendChild(globalLink);
     }
 
-    // Ensure css are loaded
     if (!document.querySelector('link[href*="header"]')) {
         const link = document.createElement('link');
         link.rel = 'stylesheet';
@@ -27,7 +24,6 @@ export default function loadHeader() {
 
     const header = document.createElement('header');
 
-    // Logo
     const logoContainer = document.createElement('div');
     logoContainer.className = 'logo-container';
 
@@ -35,20 +31,18 @@ export default function loadHeader() {
     logo.src = '/assets/images/logo.png';
     logo.alt = 'Stock Waves Logo';
     logo.style.cursor = 'pointer';
-    logo.style.width = '60px'; // Reduced size to match footer
+    logo.style.width = '60px';
     logo.style.height = '60px';
     logo.style.marginRight = '20px';
 
     logo.onclick = function () {
-        window.location.href = '/pages/Ask/ask.html';
+        window.location.href = '/pages/home/home.html';
     };
 
     logoContainer.appendChild(logo);
 
-    // Navigation
     const nav = document.createElement('nav');
 
-    // ask Link
     const askBtn = document.createElement('button');
     askBtn.className = 'header-link-btn';
     askBtn.textContent = 'ask';
@@ -56,7 +50,6 @@ export default function loadHeader() {
         window.location.href = '/pages/ask/ask.html';
     };
 
-    // Companies Link
     const companiesBtn = document.createElement('button');
     companiesBtn.className = 'header-link-btn';
     companiesBtn.textContent = 'Companies';
@@ -64,7 +57,6 @@ export default function loadHeader() {
         window.location.href = '/pages/companies/companies.html';
     };
 
-    // Sectors Link
     const sectorBtn = document.createElement('button');
     sectorBtn.className = 'header-link-btn';
     sectorBtn.textContent = 'Sectors';
@@ -72,7 +64,6 @@ export default function loadHeader() {
         window.location.href = '/pages/sector/sector.html';
     };
 
-    // Sign Up Button
     const signBtn = document.createElement('button');
     signBtn.className = 'sign-btn';
     signBtn.textContent = 'Sign Up';

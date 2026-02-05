@@ -85,12 +85,6 @@ body {
     border-radius: 15px;
     padding: 20px;
     text-align: center;
-    transition: all 0.3s ease;
-}
-
-.metric-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 35px var(--glass-shadow);
 }
 
 .metric-label {
@@ -335,9 +329,7 @@ body {
     box-shadow: 0 20px 40px var(--glass-shadow);
 }
 
-.metric-card:hover {
-    background: rgba(255, 255, 255, 0.15);
-}
+
 
 .financial-item:hover {
     background: rgba(255, 255, 255, 0.15);

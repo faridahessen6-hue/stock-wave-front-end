@@ -1,6 +1,6 @@
 import loadHeader from "/components/header/header.js";
 import createCard from "/components/item-card/item-card.js";
-import { getCompanies } from "/api/companies-api.js";
+import { getSectors } from "/api/sector-api.js";
 import loadFooter from "/components/footer/footer.js";
 
 loadHeader();
@@ -15,31 +15,39 @@ pageTitle.textContent = 'Sectors';
 
 const pageSubtitle = document.createElement('p');
 pageSubtitle.className = 'page-subtitle contrast-text';
-pageSubtitle.textContent = 'Browse different market sectors and their top companies';
+pageSubtitle.textContent = 'Browse different market sectors and their performance';
 
 pageHeader.appendChild(pageTitle);
 pageHeader.appendChild(pageSubtitle);
 
-// Create a container for cards with grid layout
 const cardsContainer = document.createElement('div');
 cardsContainer.className = 'companies-container';
 
-// Load companies from API
-function loadCompanies() {
-    const companies = getCompanies();
+async function loadSectors() {
+    try {
+        const sectors = await getSectors();
 
-    companies.forEach(company => {
-        const card = createCard(company.name, company.sector, "2024", "NASDAQ", company.symbol);
-        cardsContainer.appendChild(card);
-    });
+        if (Array.isArray(sectors)) {
+            sectors.forEach(sector => {
+                const card = createCard(sector.name, sector.growth_rate, sector.number_of_companies + " Companies", sector.market_cap, "Sector");
+
+                card.style.cursor = "pointer";
+                card.onclick = () => {
+                    sessionStorage.setItem('selectedSectorid', sector.id);
+                    window.location.href = `/pages/sector-details/sector-details.html?id=${sector.id}`;
+                };
+
+                cardsContainer.appendChild(card);
+            });
+        }
+    } catch (error) {
+        console.error("Error loading sectors:", error);
+    }
 }
 
-// Add elements to body
 document.body.appendChild(pageHeader);
 document.body.appendChild(cardsContainer);
 
-// Load data
-loadCompanies();
+loadSectors();
 
-// Load footer
 loadFooter();

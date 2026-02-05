@@ -1,22 +1,49 @@
-// Companies API - Simple and readable
+const BASE_URL = 'http://localhost:5000';
 
-// Get all companies
-export function getCompanies() {
-    // TODO: Replace with real API call when backend is ready
-    // Example: return fetch('/api/companies').then(res => res.json());
+export async function getCompanies() {
+    try {
+        const response = await fetch(`${BASE_URL}/companies`);
+        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
 
-    // Mock data for now
-    return [
-        { name: 'Apple Inc.', sector: 'Technology', symbol: 'AAPL' },
-        { name: 'Microsoft', sector: 'Software', symbol: 'MSFT' },
-        { name: 'Amazon', sector: 'E-Commerce', symbol: 'AMZN' },
-        { name: 'Tesla Inc.', sector: 'Automotive', symbol: 'TSLA' },
-        { name: 'Google', sector: 'Technology', symbol: 'GOOGL' },
-        { name: 'Meta', sector: 'Social Media', symbol: 'META' }
-    ];
+        const data = await response.json();
+
+        return data.map(item => ({
+            id: item.id,
+            name: item.name,
+            sector_id: item.sector_id,
+            market_cap: item.market_cap,
+            growth_rate: item.growth_rate,
+            share_price: item.share_price,
+            ticker: item.ticker,
+            description: item.description
+        }));
+    } catch (error) {
+        console.error("Error fetching companies:", error);
+        return [];
+    }
 }
 
-export function getCompanyDetailsBySymbol(symbol) {
-    const companies = getCompanies();
-    return companies.find(c => c.symbol === symbol) || null;
+export async function getCompanyDetailsById(id) {
+    try {
+        const response = await fetch(`${BASE_URL}/company/${id}`);
+        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+        return await response.json();
+    } catch (error) {
+        console.error(`Error fetching company ${id}:`, error);
+        return null;
+    }
+}
+
+
+
+
+export async function getCopmaniesBysector(sectorId) {
+    try {
+        const response = await fetch(`${BASE_URL}/company/sector/${sectorId}`);
+        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+        return await response.json();
+    } catch (error) {
+        console.error(`Error fetching companies by sector ${sectorId}:`, error);
+        return [];
+    }
 }

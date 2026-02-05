@@ -1,14 +1,14 @@
 import loadHeader from "/components/header/header.js";
 import loadFooter from "/components/footer/footer.js";
-import { getCompanyDetailsBySymbol } from "/api/companies-api.js";
+import { getCompanyDetailsById } from "/api/companies-api.js";
 
 loadHeader();
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
     const root = document.getElementById('company-details-root');
-    const symbol = sessionStorage.getItem('selectedCompanySymbol');
-    if (!symbol) return;
-    const company = getCompanyDetailsBySymbol(symbol);
+    const companyId = sessionStorage.getItem('selectedCompanyid');
+    if (!companyId) return;
+    const company = await getCompanyDetailsById(companyId);
 
     if (!root) return;
     root.innerHTML = '';
@@ -75,11 +75,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const ticker = document.createElement('p');
     ticker.className = 'company-ticker contrast-text';
-    ticker.textContent = company.symbol;
+    ticker.textContent = `Ticker: ${company.ticker}`;
 
     const sector = document.createElement('p');
     sector.className = 'company-sector contrast-text';
-    sector.textContent = company.sector;
+    sector.textContent = `Sector ID: ${company.sector_id || company.sectorId}`;
 
     basic.appendChild(name);
     basic.appendChild(ticker);
@@ -91,42 +91,25 @@ document.addEventListener('DOMContentLoaded', () => {
     const metrics = document.createElement('div');
     metrics.className = 'company-metrics';
 
-    const m1 = document.createElement('div');
-    m1.className = 'metric-card';
-    const m1Label = document.createElement('span');
-    m1Label.className = 'metric-label contrast-text';
-    m1Label.textContent = 'Symbol';
-    const m1Value = document.createElement('span');
-    m1Value.className = 'metric-value contrast-text';
-    m1Value.textContent = company.symbol;
-    m1.appendChild(m1Label);
-    m1.appendChild(m1Value);
+    const createMetricCard = (label, value) => {
+        const div = document.createElement('div');
+        div.className = 'metric-card';
+        const l = document.createElement('span');
+        l.className = 'metric-label contrast-text';
+        l.textContent = label;
+        const v = document.createElement('span');
+        v.className = 'metric-value contrast-text';
+        v.textContent = value || 'N/A';
+        div.appendChild(l);
+        div.appendChild(v);
+        return div;
+    };
 
-    const m2 = document.createElement('div');
-    m2.className = 'metric-card';
-    const m2Label = document.createElement('span');
-    m2Label.className = 'metric-label contrast-text';
-    m2Label.textContent = 'Sector';
-    const m2Value = document.createElement('span');
-    m2Value.className = 'metric-value contrast-text';
-    m2Value.textContent = company.sector;
-    m2.appendChild(m2Label);
-    m2.appendChild(m2Value);
-
-    const m3 = document.createElement('div');
-    m3.className = 'metric-card';
-    const m3Label = document.createElement('span');
-    m3Label.className = 'metric-label contrast-text';
-    m3Label.textContent = 'Company';
-    const m3Value = document.createElement('span');
-    m3Value.className = 'metric-value contrast-text';
-    m3Value.textContent = company.name;
-    m3.appendChild(m3Label);
-    m3.appendChild(m3Value);
-
-    metrics.appendChild(m1);
-    metrics.appendChild(m2);
-    metrics.appendChild(m3);
+    metrics.appendChild(createMetricCard('Ticker', company.ticker));
+    metrics.appendChild(createMetricCard('Share Price', company.share_price ? `$${company.share_price}` : 'N/A'));
+    metrics.appendChild(createMetricCard('Market Cap', company.market_cap));
+    metrics.appendChild(createMetricCard('Growth Rate', company.growth_rate));
+    metrics.appendChild(createMetricCard('Sector ID', company.sector_id || company.sectorId));
 
     headerSection.appendChild(logoSection);
     headerSection.appendChild(metrics);
@@ -140,7 +123,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const aboutText = document.createElement('p');
     aboutText.className = 'description-text contrast-text';
-    aboutText.textContent = 'This is a demo details page. When you connect the real backend, you can show more fields here.';
+    aboutText.textContent = company.description || 'No description available for this company.';
 
     aboutSection.appendChild(aboutTitle);
     aboutSection.appendChild(aboutText);
@@ -169,7 +152,7 @@ document.addEventListener('DOMContentLoaded', () => {
     chart.className = 'secondary-button';
     chart.textContent = 'buy';
     chart.addEventListener('click', () => {
-        alert(`Chart page for ${company.symbol} will be added later.`);
+        alert(`Chart page for ${company.ticker} will be added later.`);
     });
 
     actions.appendChild(back);
@@ -182,12 +165,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     page.appendChild(container);
     root.appendChild(page);
-
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') {
-            window.location.href = '/pages/companies/companies.html';
-        }
-    });
 
     loadFooter();
 });
