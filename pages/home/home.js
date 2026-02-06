@@ -8,6 +8,103 @@ loadHeader();
 
 const homePage = document.getElementById('home-page') || document.body;
 
+// Add interactive mouse-following effect for special background
+document.addEventListener('mousemove', (e) => {
+    const x = (e.clientX / window.innerWidth) * 100;
+    const y = (e.clientY / window.innerHeight) * 100;
+    
+    document.documentElement.style.setProperty('--mouse-x', `${x}%`);
+    document.documentElement.style.setProperty('--mouse-y', `${y}%`);
+});
+
+// Add entrance animations
+document.addEventListener('DOMContentLoaded', () => {
+    const heroCard = document.querySelector('.hero-card');
+    const featureCards = document.querySelectorAll('.feature-card');
+    const buttons = document.querySelectorAll('.home-button, .our-companies-button');
+    
+    // Stagger entrance animations
+    setTimeout(() => {
+        heroCard.style.animation = 'fadeInUp 1s ease-out';
+    }, 100);
+    
+    featureCards.forEach((card, index) => {
+        setTimeout(() => {
+            card.style.animation = 'fadeInUp 0.8s ease-out';
+        }, 300 + (index * 150));
+    });
+    
+    buttons.forEach((button, index) => {
+        setTimeout(() => {
+            button.style.animation = 'fadeInUp 0.6s ease-out';
+        }, 600 + (index * 100));
+    });
+});
+
+// Add parallax effect to background image
+document.addEventListener('scroll', () => {
+    const scrolled = window.pageYOffset;
+    const bgImage = document.querySelector('.bg-image');
+    if (bgImage) {
+        bgImage.style.transform = `translateY(${scrolled * 0.5}px) scale(1.02)`;
+    }
+});
+
+// Add interactive button effects
+document.querySelectorAll('.home-button, .our-companies-button').forEach(button => {
+    button.addEventListener('mouseenter', function(e) {
+        const ripple = document.createElement('span');
+        const rect = this.getBoundingClientRect();
+        const size = Math.max(rect.width, rect.height);
+        const x = e.clientX - rect.left - size / 2;
+        const y = e.clientY - rect.top - size / 2;
+        
+        ripple.style.width = ripple.style.height = size + 'px';
+        ripple.style.left = x + 'px';
+        ripple.style.top = y + 'px';
+        ripple.classList.add('ripple');
+        
+        this.appendChild(ripple);
+        
+        setTimeout(() => {
+            ripple.remove();
+        }, 600);
+    });
+});
+
+// Add floating animation to feature cards
+document.querySelectorAll('.feature-card').forEach((card, index) => {
+    card.style.animationDelay = `${index * 0.2}s`;
+    card.classList.add('float-animation');
+});
+
+// Add typing effect to headers
+function typeWriter(element, text, speed = 50) {
+    let i = 0;
+    element.textContent = '';
+    
+    function type() {
+        if (i < text.length) {
+            element.textContent += text.charAt(i);
+            i++;
+            setTimeout(type, speed);
+        }
+    }
+    
+    type();
+}
+
+// Apply typing effect to main header
+document.addEventListener('DOMContentLoaded', () => {
+    const header = document.querySelector('.home-header');
+    if (header) {
+        const originalText = header.textContent;
+        setTimeout(() => {
+            typeWriter(header, originalText, 80);
+        }, 500);
+    }
+});
+
 // --- 1. Create Main Container ---
 const homeContainer = document.createElement("div");
 homeContainer.className = "home-container";

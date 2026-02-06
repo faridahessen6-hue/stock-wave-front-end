@@ -1,12 +1,3 @@
-/* Home Page Styles */
-body {
-    margin: 0;
-    padding: 0;
-    min-height: 100vh;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    overflow-x: hidden;
-    background-color: #f4f4f4; 
-}
 
 /* Home Container */
 .home-container {
@@ -17,6 +8,70 @@ body {
     align-items: center;
     justify-content: center;
     padding: 20px;
+    margin-top: 100px;
+}
+
+/* Triple-layer aurora mouse effect */
+.home-container::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(
+            circle 800px at var(--mouse-x, 50%) var(--mouse-y, 50%),
+            rgba(165, 174, 158, 0.1) 0%,
+            rgba(89, 78, 53, 0.05) 20%,
+            transparent 50%
+        );
+    pointer-events: none;
+    z-index: 3;
+    transition: opacity 0.5s ease;
+    opacity: 0.6;
+    mix-blend-mode: screen;
+}
+
+/* Secondary mouse glow with ripple effect */
+.home-container::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(
+            circle 400px at var(--mouse-x, 50%) var(--mouse-y, 50%),
+            rgba(255, 255, 255, 0.08) 0%,
+            transparent 50%
+        );
+    pointer-events: none;
+    z-index: 4;
+    transition: opacity 0.6s ease;
+    opacity: 0.5;
+    mix-blend-mode: overlay;
+}
+
+/* Enhanced page container for special background */
+.page-container {
+    position: relative;
+    z-index: 5;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Ripple animation for mouse glow */
+@keyframes rippleEffect {
+    0%, 100% { 
+        transform: scale(1);
+        opacity: 0.8;
+    }
+    50% { 
+        transform: scale(1.1);
+        opacity: 1;
+    }
 }
 
 /* Hero Section */
@@ -26,16 +81,66 @@ body {
     margin: 0 auto;
 }
 
-/* Hero Card */
+/* Ripple effect for buttons */
+.ripple {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.6);
+    transform: scale(0);
+    animation: ripple-animation 0.6s ease-out;
+    pointer-events: none;
+}
+
+@keyframes ripple-animation {
+    to {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+/* Enhanced entrance animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+        filter: blur(5px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+    }
+}
+
+/* Float animation for cards */
+.float-animation {
+    animation: cardFloat 6s ease-in-out infinite;
+}
+
+@keyframes cardFloat {
+    0%, 100% { 
+        transform: translateY(0px) rotate(0deg);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+    50% { 
+        transform: translateY(-10px) rotate(1deg);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    }
+}
+
+/* Enhanced hero card with glass morphism */
 .hero-card {
-    padding: 60px 40px;
+    padding: 50px 35px;
     text-align: center;
-    border-radius: 20px;
-    backdrop-filter: blur(10px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transform: translateY(30px);
 }
 
 .hero-card::before {
@@ -45,72 +150,179 @@ body {
     left: -50%;
     width: 200%;
     height: 200%;
-    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    background: linear-gradient(
+        45deg, 
+        transparent, 
+        rgba(255, 255, 255, 0.1), 
+        transparent,
+        rgba(165, 174, 158, 0.1),
+        transparent
+    );
     transform: rotate(45deg);
-    animation: shimmer 3s infinite;
+    animation: shimmer 4s infinite;
 }
 
 .hero-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 
+        0 40px 80px rgba(0, 0, 0, 0.15),
+        inset 0 0 40px rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.15);
 }
 
-/* Description Cards */
-.description-cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-    margin: 40px 0;
-    position: relative;
-    z-index: 1;
-}
-
+/* Enhanced feature cards */
 .feature-card {
-    padding: 30px 25px;
-    border-radius: 15px;
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(5px);
+    padding: 25px 20px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(6px);
     border: 1px solid rgba(255, 255, 255, 0.1);
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
+    opacity: 1;
 }
 
 .feature-card::before {
     content: '';
     position: absolute;
     top: 0;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: linear-gradient(90deg, var(--accent-light), var(--accent-dark));
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.3s ease;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg, 
+        transparent, 
+        rgba(255, 255, 255, 0.2), 
+        transparent
+    );
+
 }
 
 .feature-card:hover::before {
-    transform: scaleX(1);
+    left: 100%;
 }
 
 .feature-card:hover {
-    transform: translateY(-8px);
+    transform: translateY(-5px);
     background: rgba(255, 255, 255, 0.08);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
 }
 
-.feature-title {
-    font-size: 1.4rem;
+/* Enhanced buttons with 3D effect */
+.home-button,
+.our-companies-button {
+    padding: 14px 32px;
+    border: none;
+    border-radius: 25px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 8px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    z-index: 1;
+    opacity: 1;
+}
+
+.home-button {
+    background: linear-gradient(135deg, #594E36, #2F2504, #1a1403);
+    color: white;
+    box-shadow: 
+        0 15px 30px rgba(89, 78, 54, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.home-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 25px rgba(89, 78, 54, 0.3);
+    background: linear-gradient(135deg, #2F2504, #594E36);
+}
+
+.our-companies-button {
+    background: transparent;
+    color: #ffffff;
+    border: 2px solid #ffffff;
+    box-shadow: 
+        0 10px 25px rgba(255, 255, 255, 0.2),
+        inset 0 0 0 rgba(255, 255, 255, 0);
+}
+
+.our-companies-button:hover {
+    background: #ffffff;
+    color: #2F2504;
+    transform: translateY(-2px);
+    box-shadow: 0 12px 25px rgba(255, 255, 255, 0.2);
+}
+
+/* Enhanced headers with glow effect */
+.home-header {
+    font-size: 3rem;
     font-weight: 700;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 1;
+    text-transform: uppercase;
+    letter-spacing: 2px;
     color: var(--text-primary);
 }
 
+@keyframes headerGlow {
+    from { filter: brightness(1) drop-shadow(0 0 20px rgba(165, 174, 158, 0.5)); }
+    to { filter: brightness(1.2) drop-shadow(0 0 30px rgba(165, 174, 158, 0.8)); }
+}
+
+.home-sub-header {
+    font-size: 1.9rem;
+    font-weight: 600;
+    margin-bottom: 35px;
+    position: relative;
+    z-index: 1;
+    color: rgba(255, 255, 255, 0.9);
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Enhanced feature titles */
+.feature-title {
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin-bottom: 18px;
+    color: var(--text-primary);
+    position: relative;
+    z-index: 1;
+}
+
+.feature-title::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #A5AE9E, #594E35);
+    transition: width 0.4s ease;
+}
+
+.feature-card:hover .feature-title::after {
+    width: 100%;
+}
+
+/* Enhanced descriptions */
 .feature-description {
-    font-size: 1rem;
-    line-height: 1.6;
+    font-size: 1.05rem;
+    line-height: 1.7;
     color: var(--text-secondary);
     margin: 0;
+    position: relative;
+    z-index: 1;
+    transition: all 0.3s ease;
+}
+
+.feature-card:hover .feature-description {
+    color: rgba(255, 255, 255, 0.95);
+    transform: translateX(5px);
 }
 
 /* Image Container (Background) */
@@ -119,27 +331,41 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    height: 100vh;
-    z-index: -1; 
+    height: 100%;
+    z-index: 0;
     overflow: hidden;
+    opacity: 0.3;
+    mix-blend-mode: overlay;
 }
 
 .bg-image {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    opacity: 0.7;
+    object-position: center;
+    filter: blur(2px) brightness(0.8);
     transition: all 0.5s ease;
     cursor: pointer;
+    animation: imageFloat 20s ease-in-out infinite;
 }
 
 .img-container:hover .bg-image {
-    opacity: 0.6;
-    filter: blur(0px);
-    transform: scale(1.02);
+    opacity: 0.5;
+    filter: blur(1px) brightness(0.9) saturate(1.2);
+    transform: scale(1.05);
 }
 
-
+/* Floating animation for background image */
+@keyframes imageFloat {
+    0%, 100% { 
+        transform: scale(1) translateY(0);
+        filter: blur(2px) brightness(0.8);
+    }
+    50% { 
+        transform: scale(1.02) translateY(-10px);
+        filter: blur(1.5px) brightness(0.85);
+    }
+}
 
 /* Headers */
 .home-header {

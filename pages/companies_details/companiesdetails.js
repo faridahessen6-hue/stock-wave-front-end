@@ -146,6 +146,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         setTimeout(() => {
             watch.textContent = 'Add to Watchlist';
         }, 1200);
+        window.location.href = '/pages/watchlist/watchlist.html';
     });
 
     const buy = document.createElement('button');
