@@ -1,5 +1,5 @@
 import loadHeader from "/components/header/header.js";
-import createCard from "/components/item-card/item-card.js";
+// import createCard from "/components/item-card/item-card.js";
 import { getCompanies } from "/api/companies-api.js";
 import loadFooter from "/components/footer/footer.js";
 
@@ -27,12 +27,12 @@ async function loadCompanies() {
         const companies = await getCompanies();
         if (Array.isArray(companies)) {
             companies.forEach(company => {
-                const card = createCard(company.name, company.sector || company.ticker, "2024", "NASDAQ", company.symbol || company.ticker);
-                card.addEventListener('click', () => {
-                    sessionStorage.setItem('selectedCompanyid', company.id || company.ticker);
-                    window.location.href = '/pages/companies_details/companiesdetails.html?id=' + (company.id || company.ticker);
-                });
-                cardsContainer.appendChild(card);
+                // const card = createCard(company.name, company.sector || company.ticker, "2024", "NASDAQ", company.symbol || company.ticker);
+                // card.addEventListener('click', () => {
+                //     sessionStorage.setItem('selectedCompanyid', company.id || company.ticker);
+                //     window.location.href = '/pages/companies_details/companiesdetails.html?id=' + (company.id || company.ticker);
+                // });
+                // cardsContainer.appendChild(card);
             });
         }
     } catch (error) {

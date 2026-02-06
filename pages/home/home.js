@@ -6,61 +6,102 @@ import loadFooter from '/components/footer/footer.js';
 // Load the header
 loadHeader();
 
+const homePage = document.getElementById('home-page') || document.body;
+
 // --- 1. Create Main Container ---
 const homeContainer = document.createElement("div");
 homeContainer.className = "home-container";
 
-// --- 2. Create Home Form Section ---
-const homeForm = document.createElement("form");
-homeForm.className = "home-form glass-panel";
+// --- 2. Create Hero Section with Cards ---
+const heroSection = document.createElement("section");
+heroSection.className = "hero-section";
+
+// Main hero card
+const heroCard = document.createElement("div");
+heroCard.className = "hero-card glass-panel";
 
 // Header
 const homeHeader = document.createElement("h1");
 homeHeader.className = "home-header gradient-header";
-homeHeader.textContent = "Home";
+homeHeader.textContent = "Stock Waves";
 
-// Sub-headers
+// Sub-header
 const homeSubHeader = document.createElement("h2");
 homeSubHeader.className = "home-sub-header contrast-text";
-homeSubHeader.textContent = "Start Your Investment Journey";
+homeSubHeader.textContent = "Navigate Your Investment Journey";
 
-const homeSubHeader2 = document.createElement("h2");
-homeSubHeader2.className = "home-sub-header contrast-text";
-homeSubHeader2.textContent = "Invest your money wisely in the stock market";
+// Description cards container
+const descriptionCards = document.createElement("div");
+descriptionCards.className = "description-cards";
 
-// Descriptions
-const homeDescription = document.createElement("p");
-homeDescription.className = "home-description contrast-text";
-homeDescription.textContent = "Access real-time stock prices, company profiles, and market insights. Our platform provides everything you need to make informed investment decisions.";
+// Feature card 1
+const featureCard1 = document.createElement("div");
+featureCard1.className = "feature-card";
+const featureCard1Title = document.createElement("h3");
+featureCard1Title.className = "feature-title";
+featureCard1Title.textContent = "Real-Time Insights";
+const featureCard1Desc = document.createElement("p");
+featureCard1Desc.className = "feature-description";
+featureCard1Desc.textContent = "Access live stock prices and market data instantly";
+featureCard1.appendChild(featureCard1Title);
+featureCard1.appendChild(featureCard1Desc);
 
-const homeDescription2 = document.createElement("p");
-homeDescription2.className = "home-description contrast-text";
-homeDescription2.textContent = "Track your portfolio, analyze market trends, and discover new investment opportunities with our comprehensive stock trading platform.";
+// Feature card 2
+const featureCard2 = document.createElement("div");
+featureCard2.className = "feature-card";
+const featureCard2Title = document.createElement("h3");
+featureCard2Title.className = "feature-title";
+featureCard2Title.textContent = "Smart Analytics";
+const featureCard2Desc = document.createElement("p");
+featureCard2Desc.className = "feature-description";
+featureCard2Desc.textContent = "Track portfolio performance with advanced tools";
+featureCard2.appendChild(featureCard2Title);
+featureCard2.appendChild(featureCard2Desc);
+
+// Feature card 3
+const featureCard3 = document.createElement("div");
+featureCard3.className = "feature-card";
+const featureCard3Title = document.createElement("h3");
+featureCard3Title.className = "feature-title";
+featureCard3Title.textContent = "Expert Guidance";
+const featureCard3Desc = document.createElement("p");
+featureCard3Desc.className = "feature-description";
+featureCard3Desc.textContent = "Get professional analysis and investment recommendations";
+featureCard3.appendChild(featureCard3Title);
+featureCard3.appendChild(featureCard3Desc);
+
+descriptionCards.appendChild(featureCard1);
+descriptionCards.appendChild(featureCard2);
+descriptionCards.appendChild(featureCard3);
 
 // Buttons
 const homeButton = document.createElement("button");
 homeButton.className = "home-button";
-homeButton.textContent = "More details";
-homeButton.type = "button"; // Prevent form submission
+homeButton.textContent = "Explore Features";
+homeButton.type = "button";
 
 const companiesButton = document.createElement("button");
 companiesButton.className = "our-companies-button";
-companiesButton.textContent = "Our companies";
+companiesButton.textContent = "View News";
 companiesButton.type = "button";
 companiesButton.onclick = function () {
-    window.location.href = '/pages/companies/companies.html';
+    window.location.href = '/pages/news/news.html';
 };
 
-// Append everything to the form
-homeForm.appendChild(homeHeader);
-homeForm.appendChild(homeSubHeader);
-homeForm.appendChild(homeSubHeader2);
-homeForm.appendChild(homeDescription);
-homeForm.appendChild(homeDescription2);
-homeForm.appendChild(homeButton);
-homeForm.appendChild(companiesButton);
+const buttonContainer = document.createElement("div");
+buttonContainer.className = "button-container";
+buttonContainer.appendChild(homeButton);
+buttonContainer.appendChild(companiesButton);
 
-homeContainer.appendChild(homeForm);
+// Assemble hero card
+heroCard.appendChild(homeHeader);
+heroCard.appendChild(homeSubHeader);
+heroCard.appendChild(descriptionCards);
+heroCard.appendChild(buttonContainer);
+
+heroSection.appendChild(heroCard);
+
+homeContainer.appendChild(heroSection);
 
 // --- 3. Create Background Image ---
 const imgContainer = document.createElement("div");
@@ -85,10 +126,10 @@ sections.forEach(function (section) {
 
 
 // --- 5. Assemble the Page ---
-document.body.appendChild(homeContainer);
-document.body.appendChild(imgContainer);
-document.body.appendChild(sectionsContainer);
-document.body.appendChild(advantagesContainer);
+homePage.appendChild(homeContainer);
+homePage.appendChild(imgContainer);
+homePage.appendChild(sectionsContainer);
+homePage.appendChild(advantagesContainer);
 
 // Load footer
 loadFooter();

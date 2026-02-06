@@ -1,5 +1,6 @@
 
 import loadHeader from "../../components/header/header.js";
+
 loadHeader();
 
 const registerContainer = document.createElement("div");

@@ -12,7 +12,7 @@ header {
     top: 0;
     left: 0;
     width: 100%;
-    height: auto;
+    height: 130px;
     padding: 0.6rem 2rem;
     background-color: var(--header-bg-light);
     color: var(--header-text-light);
@@ -40,7 +40,7 @@ header[data-bs-theme="dark"] {
     background: none;
     border: none;
     color: var(--header-text-light);
-    font-size: 1rem;
+    font-size: 20px;
     font-weight: 500;
     padding: 0.5rem 1rem;
     margin: 0 0.5rem;

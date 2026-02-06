@@ -1,5 +1,5 @@
 import loadHeader from "/components/header/header.js";
-import createCard from "/components/item-card/item-card.js";
+// import createCard from "/components/item-card/item-card.js";
 import { getSectors } from "/api/sector-api.js";
 import loadFooter from "/components/footer/footer.js";
 
@@ -29,15 +29,15 @@ async function loadSectors() {
 
         if (Array.isArray(sectors)) {
             sectors.forEach(sector => {
-                const card = createCard(sector.name, sector.growth_rate, sector.number_of_companies + " Companies", sector.market_cap, "Sector");
+                // const card = createCard(sector.name, sector.growth_rate, sector.number_of_companies + " Companies", sector.market_cap, "Sector");
 
-                card.style.cursor = "pointer";
-                card.onclick = () => {
-                    sessionStorage.setItem('selectedSectorid', sector.id);
-                    window.location.href = `/pages/sector-details/sector-details.html?id=${sector.id}`;
-                };
+                // card.style.cursor = "pointer";
+                // card.onclick = () => {
+                //     sessionStorage.setItem('selectedSectorid', sector.id);
+                //     window.location.href = `/pages/sector-details/sector-details.html?id=${sector.id}`;
+                // };
 
-                cardsContainer.appendChild(card);
+                // cardsContainer.appendChild(card);
             });
         }
     } catch (error) {

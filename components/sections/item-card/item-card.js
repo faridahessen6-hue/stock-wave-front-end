@@ -1,5 +1,3 @@
-
-
 export default function createCard(titleText = "Card", subtitleText = "text", yearText = "2025", uiverseLabel = "UIverse", cardLabel = "card") {
     // Ensure CSS is loaded
     if (!document.querySelector('link[href*="item-card"]')) {
@@ -9,7 +7,7 @@ export default function createCard(titleText = "Card", subtitleText = "text", ye
         document.head.appendChild(link);
     }
 
-    // Create the main container
+    // Create main container
     const container = document.createElement('div');
     container.className = 'animated-card-container';
 
@@ -21,7 +19,7 @@ export default function createCard(titleText = "Card", subtitleText = "text", ye
     bgOverlay.appendChild(cardBackground);
     container.appendChild(bgOverlay);
 
-    // Create the card content with spinning element
+    // Create card content with spinning element
     const cardContent = document.createElement('div');
     cardContent.className = 'card-content';
     const spinningElement = document.createElement('div');
@@ -29,7 +27,7 @@ export default function createCard(titleText = "Card", subtitleText = "text", ye
     cardContent.appendChild(spinningElement);
     container.appendChild(cardContent);
 
-    // Create the info section
+    // Create info section
     const infoSection = document.createElement('div');
     infoSection.className = 'info-section';
 

@@ -2,7 +2,7 @@ const BASE_URL = 'http://localhost:5000';
 
 export async function getCompanies() {
     try {
-        const response = await fetch(`${BASE_URL}/companies`);
+        const response = await fetch(`/companies`);
         if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
 
         const data = await response.json();

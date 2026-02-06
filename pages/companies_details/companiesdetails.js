@@ -148,16 +148,19 @@ document.addEventListener('DOMContentLoaded', async () => {
         }, 1200);
     });
 
-    const chart = document.createElement('button');
-    chart.className = 'secondary-button';
-    chart.textContent = 'buy';
-    chart.addEventListener('click', () => {
-        alert(`Chart page for ${company.ticker} will be added later.`);
+    const buy = document.createElement('button');
+    buy.className = 'secondary-button';
+    buy.textContent = 'buy';
+    buy.addEventListener('click', () => {
+        sessionStorage.setItem('selectedCompany', companyId);
+        sessionStorage.setItem('selectedCompanyTicker', company.ticker);
+        sessionStorage.setItem('selectedCompanyPrice', company.share_price);
+        window.location.href = '/pages/order/order.html';
     });
 
     actions.appendChild(back);
     actions.appendChild(watch);
-    actions.appendChild(chart);
+    actions.appendChild(buy);
 
     container.appendChild(headerSection);
     container.appendChild(aboutSection);

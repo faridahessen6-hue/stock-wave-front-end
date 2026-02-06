@@ -1,0 +1,110 @@
+/* order Container */
+.order-container {
+    width: 100%;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #2F2504 0%, #594E35 50%, #A5AE9E 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* order Form */
+.order-form {
+    width: 900px;
+    padding: 40px;
+    margin: 150px auto;
+}
+
+/* Headers */
+.order-header {
+    text-align: center;
+    color: #2F2504;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    margin-top: 0;
+}
+
+.order-subheader {
+    text-align: center;
+    color: #594E36;
+    font-size: 0.9rem;
+    font-weight: 400;
+    margin-bottom: 30px;
+    margin-top: 0;
+}
+
+/* Labels */
+.label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--text-white);
+    font-weight: 500;
+    font-size: 0.9rem;
+    text-shadow: var(--text-shadow-sm);
+}
+
+/* Inputs */
+
+.input {
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px solid #e1e5e9;
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.8);
+    box-sizing: border-box;
+    margin-bottom: 20px;
+}
+
+.input:focus {
+    outline: none;
+    border-color: #594E36;
+    background: white;
+    box-shadow: 0 0 0 3px rgba(89, 78, 54, 0.1);
+}
+
+.input::placeholder {
+    color: #a0a0a0;
+}
+
+/* order Button */
+.order-button {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(135deg, #594E36, #2F2504);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.order-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+    .order-form {
+        width: 90%;
+        padding: 30px 20px;
+    }
+    
+    .order-header {
+        font-size: 1.5rem;
+    }
+}
+
+
+
+
+
+
+

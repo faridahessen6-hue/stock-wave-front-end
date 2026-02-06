@@ -1,6 +1,6 @@
 import loadHeader from "/components/header/header.js";
 import loadFooter from "/components/footer/footer.js";
-import createCard from "/components/item-card/item-card.js";
+// import createCard from "/components/item-card/item-card.js";
 import { getSectorDetailsById } from "/api/sector-api.js";
 import { getCopmaniesBysector } from "/api/companies-api.js";
 
@@ -53,19 +53,19 @@ document.addEventListener('DOMContentLoaded', async () => {
         const sectorCompanies = await getCopmaniesBysector(sectorId);
 
         sectorCompanies.forEach(company => {
-            const card = createCard(
-                company.name,
-                company.share_price ? `$${company.share_price}` : "N/A",
-                "2024",
-                sector.name,
-                company.symbol
-            );
-            card.style.cursor = "pointer";
-            card.onclick = () => {
-                sessionStorage.setItem('selectedCompanyid', company.id);
-                window.location.href = `/pages/companies_details/companiesdetails.html?id=${company.id}`;
-            };
-            cardsContainer.appendChild(card);
+            // const card = createCard(
+            //     company.name,
+            //     company.share_price ? `$${company.share_price}` : "N/A",
+            //     "2024",
+            //     sector.name,
+            //     company.symbol
+            // );
+            // card.style.cursor = "pointer";
+            // card.onclick = () => {
+            //     sessionStorage.setItem('selectedCompanyid', company.id);
+            //     window.location.href = `/pages/companies_details/companiesdetails.html?id=${company.id}`;
+            // };
+            // cardsContainer.appendChild(card);
         });
     } catch (error) {
         console.error("Error loading sector companies:", error);
