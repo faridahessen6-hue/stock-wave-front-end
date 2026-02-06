@@ -168,7 +168,7 @@ newsData.forEach((news, index) => {
     news.tags.forEach(tagItem => {
         const tag = document.createElement('span');
         tag.className = 'news-tag';
-        tag.textContent = tag;
+        tag.textContent = tagItem;
         tags.appendChild(tag);
     });
 
