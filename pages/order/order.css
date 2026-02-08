@@ -3,7 +3,7 @@
 .order-container {
     width: 100%;
     min-height: 100vh;
-    background: linear-gradient(135deg, #2F2504 0%, #594E35 50%, #A5AE9E 100%);
+    background: linear-gradient(135deg, var(--bg-deep) 0%, var(--bg-mid) 50%, var(--accent-primary) 100%);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -26,7 +26,7 @@
 
 .order-header {
     text-align: center;
-    color: #2F2504;
+    color: var(--accent-highlight);
     font-size: 2.2rem;
     font-weight: 700;
     margin-bottom: 10px;
@@ -35,11 +35,12 @@
 
 .order-subheader {
     text-align: center;
-    color: #594E36;
+    color: var(--text-white);
     font-size: 1rem;
     font-weight: 400;
     margin-bottom: 35px;
     margin-top: 0;
+    opacity: 0.8;
 }
 
 .form-group {
@@ -116,13 +117,13 @@
 }
 
 .total-label {
-    color: #A5AE9E;
+    color: var(--accent-highlight);
     font-size: 1.2rem;
     font-weight: 700;
 }
 
 .total-value {
-    color: #A5AE9E;
+    color: var(--accent-highlight);
     font-size: 1.5rem;
     font-weight: 800;
 }
@@ -130,7 +131,7 @@
 .order-button {
     width: 100%;
     padding: 16px;
-    background: linear-gradient(135deg, #A5AE9E, #594E36);
+    background: linear-gradient(135deg, var(--accent-primary), var(--bg-deep));
     color: #fff;
     border: none;
     border-radius: 12px;
@@ -147,7 +148,7 @@
 .order-button:hover {
     transform: translateY(-3px);
     box-shadow: 0 12px 35px rgba(0, 0, 0, 0.3);
-    background: linear-gradient(135deg, #A5AE9E, #2F2504);
+    background: linear-gradient(135deg, var(--accent-highlight), var(--bg-mid));
 }
 
 .order-button:disabled {

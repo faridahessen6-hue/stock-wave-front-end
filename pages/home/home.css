@@ -5,7 +5,8 @@ body {
     min-height: 100vh;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     overflow-x: hidden;
-    background-color: #f4f4f4; 
+    background: linear-gradient(135deg, var(--bg-deep) 0%, var(--bg-mid) 50%, var(--accent-primary) 100%);
+    background-attachment: fixed;
 }
 
 /* Home Container */
@@ -147,15 +148,15 @@ body {
 }
 
 .home-button {
-    background: linear-gradient(135deg, #594E36, #2F2504);
+    background: linear-gradient(135deg, var(--accent-primary), var(--bg-deep));
     color: white;
-    box-shadow: 0 10px 25px rgba(89, 78, 54, 0.3);
+    box-shadow: 0 10px 25px rgba(0, 84, 97, 0.3);
 }
 
 .home-button:hover {
     transform: translateY(-3px);
-    box-shadow: 0 15px 35px rgba(89, 78, 54, 0.4);
-    background: linear-gradient(135deg, #2F2504, #594E36);
+    box-shadow: 0 15px 35px rgba(0, 84, 97, 0.4);
+    background: linear-gradient(135deg, var(--bg-deep), var(--accent-primary));
 }
 
 .our-companies-button {
@@ -166,7 +167,7 @@ body {
 
 .our-companies-button:hover {
     background: #ffffff;
-    color: #2F2504;
+    color: var(--bg-deep);
     transform: translateY(-3px);
     box-shadow: 0 10px 25px rgba(255, 255, 255, 0.2);
 }

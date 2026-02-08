@@ -1,10 +1,8 @@
 :root {
-    --header-bg-light: #7e846b;
-    --header-bg-dark: #5a5f4d;
-    --header-text-light: #ffffff;
-    --header-text-dark: #e8e8e8;
-    --accent-color: #a8d5ba;
-    --hover-color: #c4e4d4;
+    --header-bg: rgba(0, 84, 97, 0.8);
+    --header-text: #ffffff;
+    --accent-color: var(--accent-highlight);
+    --hover-color: rgba(60, 193, 168, 0.2);
 }
 
 header {
@@ -14,12 +12,15 @@ header {
     width: 100%;
     height: auto;
     padding: 0.6rem 2rem;
-    background-color: var(--header-bg-light);
-    color: var(--header-text-light);
+    background: var(--header-bg);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    color: var(--header-text);
     display: flex;
     align-items: center;
     justify-content: space-between;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     transition: all 0.3s ease;
     z-index: 1000;
     box-sizing: border-box;
@@ -32,8 +33,7 @@ header:first-child {
 }
 
 header[data-bs-theme="dark"] {
-    background-color: var(--header-bg-dark);
-    color: var(--header-text-dark);
+    background-color: rgba(0, 42, 49, 0.9);
 }
 
 .header-link-btn {

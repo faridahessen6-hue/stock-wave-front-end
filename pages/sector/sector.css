@@ -49,11 +49,11 @@ body {
 
 /* Enhanced Card Styles */
 .companies-container .animated-card-container .bg-overlay {
-    background: linear-gradient(45deg, #594E36, #2F2504);
+    background: linear-gradient(45deg, var(--bg-mid), var(--bg-deep));
 }
 
 .companies-container .animated-card-container .spinning-element {
-    background: linear-gradient(45deg, #A5AE9E, #594E36);
+    background: linear-gradient(45deg, var(--accent-highlight), var(--accent-primary));
     animation: spin 12s linear infinite, pulse 3s ease-in-out infinite;
 }
 
@@ -89,13 +89,13 @@ body {
 
 .filter-input:focus {
     outline: none;
-    border-color: #A5AE9E;
+    border-color: var(--accent-highlight);
     background: rgba(255, 255, 255, 0.2);
 }
 
 .filter-button {
     padding: 12px 24px;
-    background: linear-gradient(135deg, #594E36, #2F2504);
+    background: linear-gradient(135deg, var(--accent-primary), var(--bg-deep));
     color: white;
     border: none;
     border-radius: 10px;

@@ -1,5 +1,5 @@
 .footer {
-    background-color: #2F2504;
+    background-color: var(--bg-deep);
     color: #E8E8E8;
     padding: 40px 20px 20px;
     display: grid;
@@ -15,13 +15,13 @@
 }
 
 .footer-column h3 {
-    color: #A5AE9E;
+    color: var(--accent-highlight);
     font-size: 1.3rem;
     margin: 0 0 10px 0;
 }
 
 .footer-column h4 {
-    color: #A5AE9E;
+    color: var(--accent-highlight);
     font-size: 1.1rem;
     font-weight: 600;
     margin: 0 0 8px 0;

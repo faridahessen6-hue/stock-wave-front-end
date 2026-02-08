@@ -2,7 +2,7 @@
 .login-container {
     width: 100%;
     min-height: 100vh;
-    background: linear-gradient(135deg, #2F2504 0%, #594E35 50%, #A5AE9E 100%);
+    background: linear-gradient(135deg, var(--bg-deep) 0%, var(--bg-mid) 50%, var(--accent-primary) 100%);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -18,7 +18,7 @@
 /* Headers */
 .login-header {
     text-align: center;
-    color: #2F2504;
+    color: var(--accent-highlight);
     font-size: 2rem;
     font-weight: 700;
     margin-bottom: 10px;
@@ -27,11 +27,12 @@
 
 .login-subheader {
     text-align: center;
-    color: #594E36;
+    color: var(--text-white);
     font-size: 0.9rem;
     font-weight: 400;
     margin-bottom: 30px;
     margin-top: 0;
+    opacity: 0.8;
 }
 
 /* Labels */
@@ -62,9 +63,9 @@
 .email-input:focus,
 .password-input:focus {
     outline: none;
-    border-color: #594E36;
+    border-color: var(--accent-highlight);
     background: white;
-    box-shadow: 0 0 0 3px rgba(89, 78, 54, 0.1);
+    box-shadow: 0 0 0 3px rgba(36, 158, 148, 0.1);
 }
 
 .email-input::placeholder,
@@ -76,7 +77,7 @@
 .login-button {
     width: 100%;
     padding: 14px;
-    background: linear-gradient(135deg, #594E36, #2F2504);
+    background: linear-gradient(135deg, var(--accent-primary), var(--bg-deep));
     color: white;
     border: none;
     border-radius: 10px;

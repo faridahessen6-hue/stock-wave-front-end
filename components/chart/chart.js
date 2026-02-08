@@ -32,7 +32,7 @@ export default function createStockChart(stockData) {
             animations: { enabled: true }
         },
         theme: { mode: 'dark' },
-        colors: ['#A5AE9E'],
+        colors: ['#3BC1A8'],
         fill: {
             type: 'gradient',
             gradient: {

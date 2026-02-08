@@ -14,7 +14,7 @@
   height: 100%;
   position: absolute;
   padding: 1px;
-  background: linear-gradient(45deg, #594E36, #594E36);
+  background: linear-gradient(45deg, var(--bg-mid), var(--accent-primary));
 }
 
 .animated-card-container .card-background {
@@ -23,7 +23,7 @@
   border-radius: 12px;
   border-top-right-radius: 100px;
   border-bottom-right-radius: 40px;
-  background-color: #A5AE9E;
+  background-color: var(--bg-deep);
 }
 
 .animated-card-container .card-content {
@@ -42,7 +42,7 @@
   width: 8rem;
   height: 8rem;
   border-radius: 50%;
-  background: linear-gradient(45deg, #2F2504, #594E35);
+  background: linear-gradient(45deg, var(--accent-highlight), var(--accent-primary));
   animation: spin 12s linear infinite;
 }
 
