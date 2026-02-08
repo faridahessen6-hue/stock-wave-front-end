@@ -1,6 +1,8 @@
 import loadHeader from "/components/header/header.js";
 import loadFooter from "/components/footer/footer.js";
 import { getCompanyDetailsById } from "/api/companies-api.js";
+import { getStockHistoryByCompanyId } from "/api/stock-api.js";
+import createStockChart from "/components/chart/chart.js";
 
 loadHeader();
 
@@ -128,6 +130,11 @@ document.addEventListener('DOMContentLoaded', async () => {
     aboutSection.appendChild(aboutTitle);
     aboutSection.appendChild(aboutText);
 
+    // --- Stock Chart Section ---
+    const stockHistory = await getStockHistoryByCompanyId(companyId);
+    const chartSection = createStockChart(stockHistory);
+    // ---------------------------
+
     const actions = document.createElement('div');
     actions.className = 'action-buttons';
 
@@ -146,21 +153,26 @@ document.addEventListener('DOMContentLoaded', async () => {
         setTimeout(() => {
             watch.textContent = 'Add to Watchlist';
         }, 1200);
+        window.location.href = '/pages/watchlist/watchlist.html';
     });
 
-    const chart = document.createElement('button');
-    chart.className = 'secondary-button';
-    chart.textContent = 'buy';
-    chart.addEventListener('click', () => {
-        alert(`Chart page for ${company.ticker} will be added later.`);
+    const buy = document.createElement('button');
+    buy.className = 'secondary-button';
+    buy.textContent = 'buy';
+    buy.addEventListener('click', () => {
+        sessionStorage.setItem('selectedCompany', companyId);
+        sessionStorage.setItem('selectedCompanyTicker', company.ticker);
+        sessionStorage.setItem('selectedCompanyPrice', company.share_price);
+        window.location.href = '/pages/order/order.html';
     });
 
     actions.appendChild(back);
     actions.appendChild(watch);
-    actions.appendChild(chart);
+    actions.appendChild(buy);
 
     container.appendChild(headerSection);
     container.appendChild(aboutSection);
+    container.appendChild(chartSection); // Add Chart
     container.appendChild(actions);
 
     page.appendChild(container);

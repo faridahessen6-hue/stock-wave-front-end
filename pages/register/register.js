@@ -1,4 +1,4 @@
-
+import { Register } from "../../api/users-api.js";
 import loadHeader from "../../components/header/header.js";
 loadHeader();
 
@@ -103,6 +103,27 @@ const registerButton = document.createElement("button");
 registerButton.className = "register-button";
 registerButton.type = "submit";
 registerButton.textContent = "register";
+
+registerButton.addEventListener("click", async (e) => {
+    e.preventDefault();
+    const userData = {
+        name: nameInput.value,
+        email: emailInput.value,
+        age: ageInput.value,
+        phone: phoneInput.value,
+        birthday: birthdayInput.value,
+        ssn: ssnInput.value,
+        password: passwordInput.value,
+    };
+    try {
+        const response = await Register(userData);
+        setTimeout(() => {
+            console.log(response);
+        }, 50000);
+    } catch (error) {
+        console.error(error);
+    }
+});
 
 
 const redirectToLoginButton = document.createElement("button");

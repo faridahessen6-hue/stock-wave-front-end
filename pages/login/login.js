@@ -1,4 +1,5 @@
 
+import { login } from "../../api/users-api.js";
 import loadHeader from "../../components/header/header.js";
 loadHeader();
 
@@ -43,6 +44,28 @@ const loginButton = document.createElement("button");
 loginButton.className = "login-button";
 loginButton.type = "submit";
 loginButton.textContent = "Login";
+
+loginButton.addEventListener("click", async (e) => {
+    e.preventDefault();
+    const email = emailInput.value;
+    const password = passwordInput.value;
+
+    try {
+        const data = await login(email, password);
+    
+        if (data && data.user) {
+            localStorage.setItem('user', JSON.stringify(data.user));
+        } else {
+            localStorage.setItem('user', JSON.stringify(data));
+        }
+
+        window.location.href = "/pages/home/home.html";
+
+    } catch (error) {
+        console.error("Login failed:", error);
+        alert("Login failed: " + error.message);
+    }
+});
 
 
 const redirecToRegisterButton = document.createElement("button");

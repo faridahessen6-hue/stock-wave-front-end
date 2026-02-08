@@ -1,0 +1,50 @@
+.chart-section {
+    margin-top: 30px;
+    padding: 25px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.chart-header {
+    font-size: 1.8rem;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.chart-container {
+    width: 100%;
+    min-height: 400px;
+    position: relative;
+}
+
+.chart-empty-state {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 12px;
+}
+
+.apexcharts-tooltip {
+    background: rgba(30, 30, 30, 0.8) !important;
+    backdrop-filter: blur(10px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5) !important;
+    color: #fff !important;
+}
+
+.apexcharts-tooltip-title {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+    font-family: inherit !important;
+}
+
+.apexcharts-text {
+    fill: rgba(255, 255, 255, 0.7) !important;
+    font-family: 'Segoe UI', sans-serif !important;
+}
+
+.apexcharts-gridline {
+    stroke: rgba(255, 255, 255, 0.05) !important;
+}

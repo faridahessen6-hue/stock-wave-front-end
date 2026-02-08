@@ -34,9 +34,6 @@ export async function getCompanyDetailsById(id) {
     }
 }
 
-
-
-
 export async function getCopmaniesBysector(sectorId) {
     try {
         const response = await fetch(`${BASE_URL}/company/sector/${sectorId}`);
