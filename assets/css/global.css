@@ -5,11 +5,10 @@
     --glass-blur: 15px;
     
     /* New Palette Colors */
-    --bg-deep: #005461;
-    --bg-mid: #0C7779;
-    --accent-primary: #249E94;
-    --accent-highlight: #3BC1A8;
-    
+    --bg-deep: #213C51;
+    --bg-mid: #fafafa;
+    --accent-primary: #DDAED3;
+    --accent-highlight: #EEEEEE;;
     --text-white: #ffffff;
     --text-shadow-sm: 1px 1px 2px rgba(0, 0, 0, 0.3);
     --text-shadow-md: 2px 2px 4px rgba(0, 0, 0, 0.2);
@@ -73,6 +72,6 @@ body {
 }
 
 .secondary-button:hover {
-    background: rgba(255, 255, 255, 0.1);
+    background: #DDAED3;
     border-color: var(--text-white);
 }

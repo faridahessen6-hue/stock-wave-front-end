@@ -1,10 +1,6 @@
 const advantagesContainer = document.createElement("div");
 advantagesContainer.className = "advantages-container glass-panel";
 
-const advantagesImg = document.createElement("img");
-advantagesImg.className = "advantages-img";
-advantagesImg.src = "/assets/images/advantages.png";
-advantagesImg.alt = "Stock Market Advantages";
 
 // Create content wrapper for header and list
 const advantagesContent = document.createElement("div");
@@ -40,7 +36,7 @@ advantages.forEach(function (text) {
 advantagesContent.appendChild(advantagesHeader);
 advantagesContent.appendChild(advantagesList);
 
-advantagesContainer.appendChild(advantagesImg);
+
 advantagesContainer.appendChild(advantagesContent);
 
 export default advantagesContainer;

@@ -21,13 +21,9 @@ export function createAllSections() {
     desc1.className = 'homediv-title';
     desc1.textContent = 'Get up-to-the-second market data and live price updates for all your favorite stocks.';
 
-    const btn1 = document.createElement('button');
-    btn1.className = 'learn-more-button';
-    btn1.textContent = 'Learn More';
-
     section1.appendChild(title1);
     section1.appendChild(desc1);
-    section1.appendChild(btn1);
+  
     sections.push(section1);
 
     // Section 2: Market Analysis
@@ -42,13 +38,10 @@ export function createAllSections() {
     desc2.className = 'homediv-title';
     desc2.textContent = 'In-depth analysis and expert insights to help you identify the best investment opportunities.';
 
-    const btn2 = document.createElement('button');
-    btn2.className = 'learn-more-button';
-    btn2.textContent = 'Learn More';
+  
 
     section2.appendChild(title2);
     section2.appendChild(desc2);
-    section2.appendChild(btn2);
     sections.push(section2);
 
     // Section 3: Portfolio Tools
@@ -63,13 +56,11 @@ export function createAllSections() {
     desc3.className = 'homediv-title';
     desc3.textContent = 'Advanced tools to track, manage, and optimize your investment portfolio performance.';
 
-    const btn3 = document.createElement('button');
-    btn3.className = 'learn-more-button';
-    btn3.textContent = 'Learn More';
+   
 
     section3.appendChild(title3);
     section3.appendChild(desc3);
-    section3.appendChild(btn3);
+   
     sections.push(section3);
 
     return sections;

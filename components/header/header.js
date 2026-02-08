@@ -66,7 +66,7 @@ export default function loadHeader() {
 
     const signBtn = document.createElement('button');
     signBtn.className = 'sign-btn';
-    signBtn.textContent = 'Sign Up';
+    signBtn.textContent = 'profile';
     signBtn.onclick = function () {
         window.location.href = '/pages/register/register.html';
     };

@@ -145,16 +145,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         window.location.href = '/pages/companies/companies.html';
     });
 
-    const watch = document.createElement('button');
-    watch.className = 'secondary-button';
-    watch.textContent = 'Add to Watchlist';
-    watch.addEventListener('click', () => {
-        watch.textContent = 'Added';
-        setTimeout(() => {
-            watch.textContent = 'Add to Watchlist';
-        }, 1200);
-        window.location.href = '/pages/watchlist/watchlist.html';
-    });
+  
 
     const buy = document.createElement('button');
     buy.className = 'secondary-button';
@@ -167,7 +158,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     });
 
     actions.appendChild(back);
-    actions.appendChild(watch);
     actions.appendChild(buy);
 
     container.appendChild(headerSection);
