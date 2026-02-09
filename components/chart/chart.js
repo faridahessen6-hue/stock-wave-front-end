@@ -16,23 +16,21 @@ export default function createStockChart(stockData) {
         return sectionContainer;
     }
 
-    // Simple data transformation
     const seriesData = stockData
         .map(item => [new Date(item.timestamp).getTime(), parseFloat(item.price)])
         .sort((a, b) => a[0] - b[0]);
 
-    // Simplified Options
     const options = {
         series: [{ name: 'Price', data: seriesData }],
         chart: {
             type: 'area',
             height: 400,
             background: 'transparent',
-            toolbar: { show: true }, // Cleaner UI
+            toolbar: { show: true },
             animations: { enabled: true }
         },
         theme: { mode: 'dark' },
-        colors: ['#3BC1A8'],
+        colors: ['#00F0FF'],
         fill: {
             type: 'gradient',
             gradient: {

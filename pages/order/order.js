@@ -11,7 +11,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     const priceStr = sessionStorage.getItem('selectedCompanyPrice');
     const price = parseFloat(priceStr) || 0;
 
-    // Get current user
     const userJson = localStorage.getItem('user');
     const user = userJson ? JSON.parse(userJson) : null;
 
@@ -33,7 +32,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     const form = document.createElement('form');
     form.className = 'order-form';
 
-    // Header logic similar to login/register
     form.innerHTML = `
         <h1 class="order-header gradient-header">Confirm Order</h1>
         <p class="order-subheader contrast-text">Review your purchase details below</p>
@@ -79,7 +77,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     const totalVal = form.querySelector('#total-val');
     const subtotalVal = form.querySelector('#subtotal-val');
 
-    // Live price calculation
     quantityInput.addEventListener('input', () => {
         const qty = parseInt(quantityInput.value) || 0;
         const total = qty * price;
@@ -107,7 +104,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             price: price,
             totalPrice: quantity * price,
             date: new Date().toISOString(),
-            numberOfShares: quantity // Mapping both as requested in backend snippet
+            numberOfShares: quantity
         };
 
         try {

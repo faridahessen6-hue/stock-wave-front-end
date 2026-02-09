@@ -79,6 +79,8 @@ body {
     margin-bottom: 20px;
     position: relative;
     z-index: 1;
+    color: var(--text-primary);
+    text-shadow: var(--text-shadow-md);
 }
 
 .home-sub-header {
@@ -87,17 +89,20 @@ body {
     margin-bottom: 30px;
     position: relative;
     z-index: 1;
+    color: var(--accent-primary);
+    text-shadow: var(--text-shadow-sm);
 }
 
 /* Descriptions */
 .home-description {
     font-size: 1.1rem;
-    line-height: 1.6;
+    line-height: 1.7;
     margin-bottom: 20px;
     text-align: left;
     position: relative;
     z-index: 1;
     transition: all 0.3s ease;
+    color: var(--text-secondary);
 }
 
 .home-description:hover {

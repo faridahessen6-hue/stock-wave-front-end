@@ -39,9 +39,7 @@ export async function Register(userData) {
 
         if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
 
-        console.log(response);
         const data = await response.json();
-        console.log(data);
         return data;
 
     } catch (error) {

@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
     header.appendChild(subtitle);
 
     const chatPanel = document.createElement('div');
-    chatPanel.className = 'chat-shell glass-panel';
+    chatPanel.className = 'chat-shell';
 
     const quickActions = document.createElement('div');
     quickActions.className = 'quick-actions';

@@ -6,12 +6,20 @@
     
     /* New Palette Colors */
     --bg-deep: #213C51;
-    --bg-mid: #fafafa;
+    --bg-mid: #0D1E2D;
     --accent-primary: #DDAED3;
-    --accent-highlight: #EEEEEE;;
-    --text-white: #ffffff;
-    --text-shadow-sm: 1px 1px 2px rgba(0, 0, 0, 0.3);
-    --text-shadow-md: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    --accent-highlight: #EEEEEE;
+    
+    /* Semantic Text Palette (Bright & Wise) */
+    --text-primary: #FFFFFF;
+    --text-secondary: rgba(255, 255, 255, 0.7);
+    --text-accent: #DDAED3;
+    --text-bright: #00F0FF; /* Neon Cyan for prices */
+    --text-success: #00FF88; /* Vibrant growth */
+    --text-danger: #FF4D4D; /* Vibrant decline */
+    
+    --text-shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.3);
+    --text-shadow-md: 0 4px 8px rgba(0, 0, 0, 0.4);
 }
 
 /* Glassmorphism Panel Utility */
@@ -28,8 +36,17 @@
 
 /* High Contrast Typography */
 .contrast-text {
-    color: var(--text-white) !important;
+    color: var(--text-primary) !important;
     text-shadow: var(--text-shadow-sm);
+}
+
+.muted-text {
+    color: var(--text-secondary) !important;
+}
+
+.bright-text {
+    color: var(--text-bright) !important;
+    text-shadow: 0 0 10px rgba(0, 240, 255, 0.3);
 }
 
 .gradient-header {
@@ -48,7 +65,7 @@ body {
     padding: 0;
     min-height: 100vh;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, var(--bg-deep) 0%, var(--bg-mid) 50%, var(--accent-primary) 100%);
+    background: linear-gradient(135deg, var(--bg-deep) 0%, var(--bg-mid) 60%, var(--bg-deep) 100%);
     background-attachment: fixed;
 }
 

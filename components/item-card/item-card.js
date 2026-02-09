@@ -1,7 +1,5 @@
 
-
 export default function createCard(titleText = "Card", subtitleText = "text", yearText = "2025", uiverseLabel = "UIverse", cardLabel = "card") {
-    // Ensure CSS is loaded
     if (!document.querySelector('link[href*="item-card"]')) {
         const link = document.createElement('link');
         link.rel = 'stylesheet';
@@ -9,11 +7,9 @@ export default function createCard(titleText = "Card", subtitleText = "text", ye
         document.head.appendChild(link);
     }
 
-    // Create the main container
     const container = document.createElement('div');
     container.className = 'animated-card-container';
 
-    // Create background overlay with gradient
     const bgOverlay = document.createElement('div');
     bgOverlay.className = 'bg-overlay';
     const cardBackground = document.createElement('div');
@@ -21,7 +17,6 @@ export default function createCard(titleText = "Card", subtitleText = "text", ye
     bgOverlay.appendChild(cardBackground);
     container.appendChild(bgOverlay);
 
-    // Create the card content with spinning element
     const cardContent = document.createElement('div');
     cardContent.className = 'card-content';
     const spinningElement = document.createElement('div');
@@ -29,11 +24,9 @@ export default function createCard(titleText = "Card", subtitleText = "text", ye
     cardContent.appendChild(spinningElement);
     container.appendChild(cardContent);
 
-    // Create the info section
     const infoSection = document.createElement('div');
     infoSection.className = 'info-section';
 
-    // Left panel
     const leftPanel = document.createElement('div');
     leftPanel.className = 'left-panel';
     const title = document.createElement('span');
@@ -50,25 +43,28 @@ export default function createCard(titleText = "Card", subtitleText = "text", ye
     leftPanel.appendChild(subtitle);
     leftPanel.appendChild(year);
 
-    // Right panel
     const rightPanel = document.createElement('div');
     rightPanel.className = 'right-panel';
+
+    const labelsStack = document.createElement('div');
+    labelsStack.className = 'labels-stack';
+
     const uiLabel = document.createElement('span');
     uiLabel.className = 'ui-label';
     uiLabel.textContent = uiverseLabel;
+
     const cardLabelElement = document.createElement('span');
     cardLabelElement.className = 'label';
     cardLabelElement.textContent = cardLabel;
 
-    // Icon container
+    labelsStack.appendChild(uiLabel);
+    labelsStack.appendChild(cardLabelElement);
+
     const iconContainer = document.createElement('div');
     iconContainer.className = 'icon-container';
 
-    // Create SVG for arrow icon
     const svgNS = "http://www.w3.org/2000/svg";
     const svg = document.createElementNS(svgNS, "svg");
-    svg.setAttribute("xmlns", svgNS);
-    svg.setAttribute("xmlns:xlink", "http://www.w3.org/1999/xlink");
     svg.setAttribute("viewBox", "0 0 12 12");
     svg.setAttribute("class", "w-4 h-4");
 
@@ -87,8 +83,7 @@ export default function createCard(titleText = "Card", subtitleText = "text", ye
     arrowIcon.appendChild(svg);
     iconContainer.appendChild(arrowIcon);
 
-    rightPanel.appendChild(uiLabel);
-    rightPanel.appendChild(cardLabelElement);
+    rightPanel.appendChild(labelsStack);
     rightPanel.appendChild(iconContainer);
 
     infoSection.appendChild(leftPanel);

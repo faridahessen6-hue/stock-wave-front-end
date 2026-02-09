@@ -5,7 +5,6 @@ import loadFooter from "/components/footer/footer.js";
 
 loadHeader();
 
-// Create page header
 const pageHeader = document.createElement('div');
 pageHeader.className = 'page-header glass-panel';
 

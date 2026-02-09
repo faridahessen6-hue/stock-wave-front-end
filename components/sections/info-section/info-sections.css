@@ -1,17 +1,15 @@
-/* Home Div Sections Styles */
+/* Standardized Section Styling */
 .homediv {
-    background: rgba(255, 255, 255, 0.95);
-    border-radius: 20px;
-    padding: 40px;
-    margin: 30px auto;
     max-width: 800px;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    margin: 30px auto;
     position: relative;
     overflow: hidden;
-    transition: all 0.3s ease;
-    animation: fadeInUp 0.6s ease-out;
+    animation: fadeInUp 0.8s ease-out;
+}
+
+.homediv.glass-panel {
+    padding: 40px;
+    background: var(--glass-bg);
 }
 
 /* Removed hover effect - not necessary */
@@ -22,19 +20,19 @@
     top: 0;
     left: 0;
     right: 0;
-    height: 4px;
-    background: linear-gradient(90deg, #2F2504, #594E36, #A5AE9E);
-    animation: shimmerLine 2s infinite;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--accent-primary), transparent);
+    animation: shimmerLine 3s infinite;
 }
 
 /* Section Titles */
 .section-title {
     font-size: 1.8rem;
     font-weight: 700;
-    color: #2F2504;
+    color: var(--bg-deep);
     margin-bottom: 15px;
     text-align: center;
-    background: linear-gradient(135deg, #2F2504, #594E36);
+    background: linear-gradient(135deg, var(--bg-deep), var(--accent-primary));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -42,20 +40,20 @@
 
 /* Home Div Titles */
 .homediv-title {
-    font-size: 1.3rem;
-    font-weight: 600;
-    color: #4a4a4a;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--text-white);
     margin-bottom: 25px;
     text-align: center;
-    line-height: 1.5;
-    opacity: 0.9;
+    line-height: 1.6;
+    opacity: 0.85;
 }
 
 /* Learn More Buttons */
 .learn-more-button {
     display: inline-block;
     padding: 12px 30px;
-    background: linear-gradient(135deg, #594E36, #2F2504);
+    background: linear-gradient(135deg, var(--accent-primary), var(--bg-deep));
     color: white;
     border: none;
     border-radius: 25px;
@@ -90,8 +88,8 @@
 
 .learn-more-button:hover {
     transform: translateY(-2px);
-    box-shadow: 0 10px 25px rgba(89, 78, 54, 0.3);
-    background: linear-gradient(135deg, #2F2504, #594E36);
+    box-shadow: 0 10px 25px rgba(221, 174, 211, 0.3);
+    background: linear-gradient(135deg, var(--bg-deep), var(--accent-primary));
 }
 
 /* Section Images */
@@ -129,20 +127,20 @@
     margin: 0 auto;
 }
 
-/* Individual section styling */
+/* Individual section accent borders */
 .homediv:nth-child(1) {
     animation-delay: 0.1s;
-    border-left: 4px solid #2F2504;
+    border-top: 1px solid var(--accent-primary);
 }
 
 .homediv:nth-child(2) {
     animation-delay: 0.2s;
-    border-left: 4px solid #594E36;
+    border-top: 1px solid var(--accent-highlight);
 }
 
 .homediv:nth-child(3) {
     animation-delay: 0.3s;
-    border-left: 4px solid #A5AE9E;
+    border-top: 1px solid var(--accent-primary);
 }
 
 /* Removed section-specific hover effects */
@@ -248,21 +246,13 @@
     outline-offset: 2px;
 }
 
-/* Dark mode support */
+/* Standardized shadows */
+.section-image {
+    box-shadow: 0 8px 32px var(--glass-shadow);
+}
+/* Ensure dark mode remains consistent with global variables */
 @media (prefers-color-scheme: dark) {
-    .homediv {
-        background: rgba(30, 30, 30, 0.95);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-    }
-    
-    .section-title {
-        background: linear-gradient(135deg, #A5AE9E, #594E36);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-    }
-    
-    .homediv-title {
-        color: #e0e0e0;
+    .homediv.glass-panel {
+        background: var(--glass-bg);
     }
 }

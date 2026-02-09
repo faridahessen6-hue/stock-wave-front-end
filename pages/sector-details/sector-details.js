@@ -19,26 +19,26 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     root.innerHTML = `
-        <div class="sector-details-full-container" style="padding: 20px 40px">
-            <div class="page-header glass-panel" style="margin-bottom: 30px">
+        <div class="sector-details-full-container">
+            <div class="page-header glass-panel">
                 <h1 class="page-title gradient-header">${sector.name} Sector</h1>
                 <p class="page-subtitle contrast-text">Explore performance metrics and member companies within this sector</p>
             </div>
 
-            <div class="sector-info-section glass-panel" style="margin-bottom: 30px">
-                <h2 class="gradient-header" style="font-size: 1.8rem; margin-bottom: 25px">Sector Performance Overview</h2>
+            <div class="sector-info-section glass-panel">
+                <h2 class="gradient-header sector-info-header">Sector Performance Overview</h2>
                 <div class="metrics-grid">
                     <div class="metric-card">
-                        <p class="metric-label contrast-text">Annual Growth</p>
-                        <h3 class="metric-value contrast-text">${sector.growth_rate}</h3>
+                        <p class="metric-label">Annual Growth</p>
+                        <h3 class="metric-value">${sector.growth_rate}</h3>
                     </div>
                     <div class="metric-card">
-                        <p class="metric-label contrast-text">Market Valuation</p>
-                        <h3 class="metric-value contrast-text">${sector.market_cap}</h3>
+                        <p class="metric-label">Market Valuation</p>
+                        <h3 class="metric-value">${sector.market_cap}</h3>
                     </div>
                     <div class="metric-card">
-                        <p class="metric-label contrast-text">Active Companies</p>
-                        <h3 class="metric-value contrast-text">${sector.number_of_companies}</h3>
+                        <p class="metric-label">Active Companies</p>
+                        <h3 class="metric-value">${sector.number_of_companies}</h3>
                     </div>
                 </div>
             </div>
@@ -60,7 +60,6 @@ document.addEventListener('DOMContentLoaded', async () => {
                 sector.name,
                 company.symbol
             );
-            card.style.cursor = "pointer";
             card.onclick = () => {
                 sessionStorage.setItem('selectedCompanyid', company.id);
                 window.location.href = `/pages/companies_details/companiesdetails.html?id=${company.id}`;

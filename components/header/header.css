@@ -1,8 +1,8 @@
 :root {
-    --header-bg: rgba(0, 84, 97, 0.8);
+    --header-bg: rgba(33, 60, 81, 0.9);
     --header-text: #ffffff;
-    --accent-color: var(--accent-highlight);
-    --hover-color: rgba(60, 193, 168, 0.2);
+    --accent-color: var(--accent-primary);
+    --hover-color: rgba(221, 174, 211, 0.2);
 }
 
 header {
@@ -33,7 +33,7 @@ header:first-child {
 }
 
 header[data-bs-theme="dark"] {
-    background-color: rgba(0, 42, 49, 0.9);
+    background-color: var(--bg-deep);
 }
 
 .header-link-btn {

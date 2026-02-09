@@ -1,5 +1,4 @@
 export function createAllSections() {
-    // Ensure CSS is loaded
     if (!document.querySelector('link[href*="info-sections"]')) {
         const link = document.createElement('link');
         link.rel = 'stylesheet';
@@ -9,9 +8,8 @@ export function createAllSections() {
 
     const sections = [];
 
-    // Section 1: Real-time Data
     const section1 = document.createElement('div');
-    section1.className = 'homediv';
+    section1.className = 'homediv glass-panel';
 
     const title1 = document.createElement('h3');
     title1.className = 'section-title';
@@ -23,12 +21,11 @@ export function createAllSections() {
 
     section1.appendChild(title1);
     section1.appendChild(desc1);
-  
+
     sections.push(section1);
 
-    // Section 2: Market Analysis
     const section2 = document.createElement('div');
-    section2.className = 'homediv';
+    section2.className = 'homediv glass-panel';
 
     const title2 = document.createElement('h3');
     title2.className = 'section-title';
@@ -38,15 +35,12 @@ export function createAllSections() {
     desc2.className = 'homediv-title';
     desc2.textContent = 'In-depth analysis and expert insights to help you identify the best investment opportunities.';
 
-  
-
     section2.appendChild(title2);
     section2.appendChild(desc2);
     sections.push(section2);
 
-    // Section 3: Portfolio Tools
     const section3 = document.createElement('div');
-    section3.className = 'homediv';
+    section3.className = 'homediv glass-panel';
 
     const title3 = document.createElement('h3');
     title3.className = 'section-title';
@@ -56,11 +50,9 @@ export function createAllSections() {
     desc3.className = 'homediv-title';
     desc3.textContent = 'Advanced tools to track, manage, and optimize your investment portfolio performance.';
 
-   
-
     section3.appendChild(title3);
     section3.appendChild(desc3);
-   
+
     sections.push(section3);
 
     return sections;

@@ -97,10 +97,10 @@ document.addEventListener('DOMContentLoaded', async () => {
         const div = document.createElement('div');
         div.className = 'metric-card';
         const l = document.createElement('span');
-        l.className = 'metric-label contrast-text';
+        l.className = 'metric-label';
         l.textContent = label;
         const v = document.createElement('span');
-        v.className = 'metric-value contrast-text';
+        v.className = 'metric-value';
         v.textContent = value || 'N/A';
         div.appendChild(l);
         div.appendChild(v);
@@ -130,10 +130,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     aboutSection.appendChild(aboutTitle);
     aboutSection.appendChild(aboutText);
 
-    // --- Stock Chart Section ---
     const stockHistory = await getStockHistoryByCompanyId(companyId);
     const chartSection = createStockChart(stockHistory);
-    // ---------------------------
 
     const actions = document.createElement('div');
     actions.className = 'action-buttons';
@@ -144,8 +142,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     back.addEventListener('click', () => {
         window.location.href = '/pages/companies/companies.html';
     });
-
-  
 
     const buy = document.createElement('button');
     buy.className = 'secondary-button';
@@ -162,7 +158,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     container.appendChild(headerSection);
     container.appendChild(aboutSection);
-    container.appendChild(chartSection); // Add Chart
+    container.appendChild(chartSection);
     container.appendChild(actions);
 
     page.appendChild(container);

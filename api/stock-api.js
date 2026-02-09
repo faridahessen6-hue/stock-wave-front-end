@@ -5,7 +5,6 @@ export async function getStockHistoryByCompanyId(companyId) {
         const response = await fetch(`${BASE_URL}/stocks/company/${companyId}`);
         if (!response.ok) {
             if (response.status === 404) {
-                console.warn(`No stock history found for company ${companyId}, using mock data for demonstration.`);
                 return generateMockData(companyId);
             }
             throw new Error(`HTTP error! status: ${response.status}`);
@@ -13,20 +12,19 @@ export async function getStockHistoryByCompanyId(companyId) {
         return await response.json();
     } catch (error) {
         console.error(`Error fetching stock history for company ${companyId}:`, error);
-        return generateMockData(companyId); // Fallback to mock data on error too
+        return generateMockData(companyId);
     }
 }
 
 function generateMockData(companyId) {
     const data = [];
     const today = new Date();
-    let price = 150 + (Math.random() * 50); // Random start price
+    let price = 150 + (Math.random() * 50);
 
     for (let i = 30; i >= 0; i--) {
         const date = new Date(today);
         date.setDate(date.getDate() - i);
 
-        // Random walk
         const change = (Math.random() - 0.5) * 5;
         price += change;
 
