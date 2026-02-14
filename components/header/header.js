@@ -64,20 +64,45 @@ export default function loadHeader() {
         window.location.href = '/pages/sector/sector.html';
     };
 
-    const signBtn = document.createElement('button');
-    signBtn.className = 'sign-btn';
-    signBtn.textContent = 'profile';
-    signBtn.onclick = function () {
-        window.location.href = '/pages/register/register.html';
-    };
-
     nav.appendChild(askBtn);
     nav.appendChild(companiesBtn);
     nav.appendChild(sectorBtn);
 
-    header.appendChild(logoContainer);
-    header.appendChild(nav);
-    header.appendChild(signBtn);
+    const userJson = localStorage.getItem('user');
+    const user = userJson ? JSON.parse(userJson) : null;
+
+    const signBtn = document.createElement('button');
+    signBtn.className = 'sign-btn';
+
+    if (user) {
+        signBtn.textContent = 'Profile';
+        signBtn.onclick = function () {
+            window.location.href = '/pages/profile/profile.html';
+        };
+
+        const logoutBtn = document.createElement('button');
+        logoutBtn.className = 'sign-btn';
+        logoutBtn.style.marginLeft = '10px';
+        logoutBtn.textContent = 'Logout';
+        logoutBtn.onclick = function () {
+            localStorage.removeItem('user');
+            window.location.href = '/pages/home/home.html';
+        };
+
+        header.appendChild(logoContainer);
+        header.appendChild(nav);
+        header.appendChild(signBtn);
+        header.appendChild(logoutBtn);
+    } else {
+        signBtn.textContent = 'Login';
+        signBtn.onclick = function () {
+            window.location.href = '/pages/register/register.html';
+        };
+
+        header.appendChild(logoContainer);
+        header.appendChild(nav);
+        header.appendChild(signBtn);
+    }
 
     document.body.prepend(header);
 }

@@ -117,11 +117,11 @@ registerButton.addEventListener("click", async (e) => {
     };
     try {
         const response = await Register(userData);
-        setTimeout(() => {
-            console.log(response);
-        }, 50000);
+        alert("Registration successful! Please login.");
+        window.location.href = "/pages/login/login.html";
     } catch (error) {
         console.error(error);
+        alert("Registration failed: " + error.message);
     }
 });
 
