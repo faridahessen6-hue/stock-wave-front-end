@@ -118,7 +118,7 @@ registerButton.addEventListener("click", async (e) => {
     try {
         const response = await Register(userData);
         alert("Registration successful! Please login.");
-        window.location.href = "/pages/login/login.html";
+        window.location.href = "../login/login.html";
     } catch (error) {
         console.error(error);
         alert("Registration failed: " + error.message);
@@ -131,7 +131,7 @@ redirectToLoginButton.className = "secondary-button";
 redirectToLoginButton.textContent = "Have An Account?! Log In";
 redirectToLoginButton.type = "button";
 redirectToLoginButton.onclick = function () {
-    window.location.href = "/pages/login/login.html";
+    window.location.href = "../login/login.html";
 };
 
 

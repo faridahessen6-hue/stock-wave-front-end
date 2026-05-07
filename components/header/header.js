@@ -1,4 +1,9 @@
 export default function loadHeader() {
+    const baseUrl = new URL('.', import.meta.url);
+    const headerCssUrl = new URL('./header.css', baseUrl).href;
+    const globalCssUrl = new URL('../../assets/css/global.css', baseUrl).href;
+    const logoUrl = new URL('../../assets/images/logo.png', baseUrl).href;
+
     if (!document.querySelector('link[href*="bootstrap-icons"]')) {
         const link = document.createElement('link');
         link.rel = 'stylesheet';
@@ -11,14 +16,14 @@ export default function loadHeader() {
     if (!document.querySelector('link[href*="global.css"]')) {
         const globalLink = document.createElement('link');
         globalLink.rel = 'stylesheet';
-        globalLink.href = '/assets/css/global.css';
+        globalLink.href = globalCssUrl;
         document.head.appendChild(globalLink);
     }
 
     if (!document.querySelector('link[href*="header"]')) {
         const link = document.createElement('link');
         link.rel = 'stylesheet';
-        link.href = '/components/header/header.css';
+        link.href = headerCssUrl;
         document.head.appendChild(link);
     }
 
@@ -28,7 +33,7 @@ export default function loadHeader() {
     logoContainer.className = 'logo-container';
 
     const logo = document.createElement('img');
-    logo.src = '/assets/images/logo.png';
+    logo.src = logoUrl;
     logo.alt = 'Stock Waves Logo';
     logo.style.cursor = 'pointer';
     logo.style.width = '60px';
@@ -36,7 +41,7 @@ export default function loadHeader() {
     logo.style.marginRight = '20px';
 
     logo.onclick = function () {
-        window.location.href = '/pages/home/home.html';
+        window.location.href = '../home/home.html';
     };
 
     logoContainer.appendChild(logo);
@@ -47,21 +52,21 @@ export default function loadHeader() {
     askBtn.className = 'header-link-btn';
     askBtn.textContent = 'ask';
     askBtn.onclick = function () {
-        window.location.href = '/pages/ask/ask.html';
+        window.location.href = '../ask/ask.html';
     };
 
     const companiesBtn = document.createElement('button');
     companiesBtn.className = 'header-link-btn';
     companiesBtn.textContent = 'Companies';
     companiesBtn.onclick = function () {
-        window.location.href = '/pages/companies/companies.html';
+        window.location.href = '../companies/companies.html';
     };
 
     const sectorBtn = document.createElement('button');
     sectorBtn.className = 'header-link-btn';
     sectorBtn.textContent = 'Sectors';
     sectorBtn.onclick = function () {
-        window.location.href = '/pages/sector/sector.html';
+        window.location.href = '../sector/sector.html';
     };
 
     nav.appendChild(askBtn);
@@ -77,7 +82,7 @@ export default function loadHeader() {
     if (user) {
         signBtn.textContent = 'Profile';
         signBtn.onclick = function () {
-            window.location.href = '/pages/profile/profile.html';
+            window.location.href = '../profile/profile.html';
         };
 
         const logoutBtn = document.createElement('button');
@@ -86,7 +91,7 @@ export default function loadHeader() {
         logoutBtn.textContent = 'Logout';
         logoutBtn.onclick = function () {
             localStorage.removeItem('user');
-            window.location.href = '/pages/home/home.html';
+            window.location.href = '../home/home.html';
         };
 
         header.appendChild(logoContainer);
@@ -96,7 +101,7 @@ export default function loadHeader() {
     } else {
         signBtn.textContent = 'Login';
         signBtn.onclick = function () {
-            window.location.href = '/pages/register/register.html';
+            window.location.href = '../register/register.html';
         };
 
         header.appendChild(logoContainer);

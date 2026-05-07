@@ -1,8 +1,8 @@
-import loadHeader from "/components/header/header.js";
-import loadFooter from "/components/footer/footer.js";
-import createCard from "/components/item-card/item-card.js";
-import { getSectorDetailsById } from "/api/sector-api.js";
-import { getCopmaniesBysector } from "/api/companies-api.js";
+import loadHeader from "../../components/header/header.js";
+import loadFooter from "../../components/footer/footer.js";
+import createCard from "../../components/item-card/item-card.js";
+import { getSectorDetailsById } from "../../api/sector-api.js";
+import { getCopmaniesBysector } from "../../api/companies-api.js";
 
 loadHeader();
 
@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             );
             card.onclick = () => {
                 sessionStorage.setItem('selectedCompanyid', company.id);
-                window.location.href = `/pages/companies_details/companiesdetails.html?id=${company.id}`;
+                window.location.href = `../companies_details/companiesdetails.html?id=${company.id}`;
             };
             cardsContainer.appendChild(card);
         });

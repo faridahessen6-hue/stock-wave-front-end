@@ -1,8 +1,8 @@
-import loadHeader from "/components/header/header.js";
-import loadFooter from "/components/footer/footer.js";
-import { getCompanyDetailsById } from "/api/companies-api.js";
-import { getStockHistoryByCompanyId } from "/api/stock-api.js";
-import createStockChart from "/components/chart/chart.js";
+import loadHeader from "../../components/header/header.js";
+import loadFooter from "../../components/footer/footer.js";
+import { getCompanyDetailsById } from "../../api/companies-api.js";
+import { getStockHistoryByCompanyId } from "../../api/stock-api.js";
+import createStockChart from "../../components/chart/chart.js";
 
 loadHeader();
 
@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         backBtn.className = 'secondary-button';
         backBtn.textContent = 'Back to Companies';
         backBtn.addEventListener('click', () => {
-            window.location.href = '/pages/companies/companies.html';
+            window.location.href = '../companies/companies.html';
         });
 
         panel.appendChild(title);
@@ -140,7 +140,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     back.className = 'secondary-button';
     back.textContent = 'Back to Companies';
     back.addEventListener('click', () => {
-        window.location.href = '/pages/companies/companies.html';
+        window.location.href = '../companies/companies.html';
     });
 
     const buy = document.createElement('button');
@@ -150,7 +150,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         sessionStorage.setItem('selectedCompany', companyId);
         sessionStorage.setItem('selectedCompanyTicker', company.ticker);
         sessionStorage.setItem('selectedCompanyPrice', company.share_price);
-        window.location.href = '/pages/order/order.html';
+        window.location.href = '../order/order.html';
     });
 
     actions.appendChild(back);

@@ -16,13 +16,13 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     if (!user) {
         alert("Please login to place an order.");
-        window.location.href = "/pages/login/login.html";
+        window.location.href = "../login/login.html";
         return;
     }
 
     if (!companyId || !ticker) {
         alert("No company selected. Returning to companies page.");
-        window.location.href = "/pages/companies/companies.html";
+        window.location.href = "../companies/companies.html";
         return;
     }
 
@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         </div>
 
         <button type="submit" id="submit-order" class="order-button">Place Purchase Order</button>
-        <button type="button" class="secondary-button" onclick="window.location.href='/pages/companies/companies.html'">Cancel</button>
+        <button type="button" class="secondary-button" onclick="window.location.href='../companies/companies.html'">Cancel</button>
     `;
 
     container.appendChild(form);
@@ -110,7 +110,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         try {
             const result = await createOrder(orderData);
             alert("Success! Your order has been placed.");
-            window.location.href = "/pages/home/home.html";
+            window.location.href = "../home/home.html";
         } catch (error) {
             alert("Failed to create order: " + error.message);
             submitBtn.disabled = false;

@@ -59,7 +59,7 @@ loginButton.addEventListener("click", async (e) => {
             localStorage.setItem('user', JSON.stringify(data));
         }
 
-        window.location.href = "/pages/home/home.html";
+        window.location.href = "../home/home.html";
 
     } catch (error) {
         console.error("Login failed:", error);
@@ -73,7 +73,7 @@ redirecToRegisterButton.textContent = "Do Not Have An Account?! Register";
 redirecToRegisterButton.className = "secondary-button";
 redirecToRegisterButton.type = "button";
 redirecToRegisterButton.onclick = function () {
-    window.location.href = "/pages/register/register.html";
+    window.location.href = "../register/register.html";
 };
 
 

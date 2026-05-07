@@ -1,7 +1,7 @@
-import loadHeader from "/components/header/header.js";
-import createCard from "/components/item-card/item-card.js";
-import { getCompanies } from "/api/companies-api.js";
-import loadFooter from "/components/footer/footer.js";
+import loadHeader from "../../components/header/header.js";
+import createCard from "../../components/item-card/item-card.js";
+import { getCompanies } from "../../api/companies-api.js";
+import loadFooter from "../../components/footer/footer.js";
 
 loadHeader();
 
@@ -30,7 +30,7 @@ async function loadCompanies() {
                 const card = createCard(company.name, company.sector || company.ticker, "2024", "NASDAQ", company.symbol || company.ticker);
                 card.addEventListener('click', () => {
                     sessionStorage.setItem('selectedCompanyid', company.id || company.ticker);
-                    window.location.href = '/pages/companies_details/companiesdetails.html?id=' + (company.id || company.ticker);
+                    window.location.href = '../companies_details/companiesdetails.html?id=' + (company.id || company.ticker);
                 });
                 cardsContainer.appendChild(card);
             });

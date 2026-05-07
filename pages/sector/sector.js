@@ -1,7 +1,7 @@
-import loadHeader from "/components/header/header.js";
-import createCard from "/components/item-card/item-card.js";
-import { getSectors } from "/api/sector-api.js";
-import loadFooter from "/components/footer/footer.js";
+import loadHeader from "../../components/header/header.js";
+import createCard from "../../components/item-card/item-card.js";
+import { getSectors } from "../../api/sector-api.js";
+import loadFooter from "../../components/footer/footer.js";
 
 loadHeader();
 
@@ -33,7 +33,7 @@ async function loadSectors() {
                 card.style.cursor = "pointer";
                 card.onclick = () => {
                     sessionStorage.setItem('selectedSectorid', sector.id);
-                    window.location.href = `/pages/sector-details/sector-details.html?id=${sector.id}`;
+                    window.location.href = `../sector-details/sector-details.html?id=${sector.id}`;
                 };
 
                 cardsContainer.appendChild(card);

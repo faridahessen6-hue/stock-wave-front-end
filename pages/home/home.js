@@ -1,7 +1,10 @@
-import loadHeader from '/components/header/header.js';
-import { createAllSections } from '/components/sections/info-section/info-sections.js';
-import advantagesContainer from '/components/sections/advanteges-list/advantages-list.js';
-import loadFooter from '/components/footer/footer.js';
+import loadHeader from '../../components/header/header.js';
+import { createAllSections } from '../../components/sections/info-section/info-sections.js';
+import advantagesContainer from '../../components/sections/advanteges-list/advantages-list.js';
+import loadFooter from '../../components/footer/footer.js';
+
+const baseUrl = new URL('.', import.meta.url);
+const bgImageUrl = new URL('../../assets/images/b2.png', baseUrl).href;
 
 loadHeader();
 
@@ -41,7 +44,7 @@ companiesButton.className = "our-companies-button";
 companiesButton.textContent = "Our companies";
 companiesButton.type = "button";
 companiesButton.onclick = function () {
-    window.location.href = '/pages/companies/companies.html';
+    window.location.href = '../companies/companies.html';
 };
 
 homeForm.appendChild(homeHeader);
@@ -59,7 +62,7 @@ imgContainer.className = "img-container";
 
 const bgImage = document.createElement("img");
 bgImage.className = "bg-image";
-bgImage.src = "/assets/images/b2.png";
+bgImage.src = bgImageUrl;
 bgImage.alt = "Background Image";
 
 imgContainer.appendChild(bgImage);

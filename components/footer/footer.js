@@ -1,9 +1,13 @@
 export default function loadFooter() {
+    const baseUrl = new URL('.', import.meta.url);
+    const footerCssUrl = new URL('./footer.css', baseUrl).href;
+    const logoUrl = new URL('../../assets/images/logo.png', baseUrl).href;
+
     // Ensure CSS is loaded
     if (!document.querySelector('link[href*="footer.css"]')) {
         const link = document.createElement('link');
         link.rel = 'stylesheet';
-        link.href = '/components/footer/footer.css';
+        link.href = footerCssUrl;
         document.head.appendChild(link);
     }
 
@@ -15,7 +19,7 @@ export default function loadFooter() {
     brandCol.className = 'footer-column';
 
     const footerLogo = document.createElement('img');
-    footerLogo.src = '/assets/images/logo.png';
+    footerLogo.src = logoUrl;
     footerLogo.alt = 'Stock Waves Logo';
     footerLogo.className = 'footer-logo';
     footerLogo.style.width = '60px';

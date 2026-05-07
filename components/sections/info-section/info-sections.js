@@ -1,8 +1,11 @@
 export function createAllSections() {
+    const baseUrl = new URL('.', import.meta.url);
+    const cssUrl = new URL('./info-sections.css', baseUrl).href;
+
     if (!document.querySelector('link[href*="info-sections"]')) {
         const link = document.createElement('link');
         link.rel = 'stylesheet';
-        link.href = '/components/sections/info-section/info-sections.css';
+        link.href = cssUrl;
         document.head.appendChild(link);
     }
 

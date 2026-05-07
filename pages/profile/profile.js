@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const user = userJson ? JSON.parse(userJson) : null;
 
     if (!user) {
-        window.location.href = "/pages/login/login.html";
+        window.location.href = "../login/login.html";
         return;
     }
 
@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     logoutBtn.textContent = 'Logout';
     logoutBtn.onclick = () => {
         localStorage.removeItem('user');
-        window.location.href = '/pages/home/home.html';
+        window.location.href = '../home/home.html';
     };
 
     actions.appendChild(editBtn);

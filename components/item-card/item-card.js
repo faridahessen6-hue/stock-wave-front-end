@@ -1,9 +1,12 @@
 
 export default function createCard(titleText = "Card", subtitleText = "text", yearText = "2025", uiverseLabel = "UIverse", cardLabel = "card") {
+    const baseUrl = new URL('.', import.meta.url);
+    const cssUrl = new URL('./item-card.css', baseUrl).href;
+
     if (!document.querySelector('link[href*="item-card"]')) {
         const link = document.createElement('link');
         link.rel = 'stylesheet';
-        link.href = '/components/item-card/item-card.css';
+        link.href = cssUrl;
         document.head.appendChild(link);
     }
 
